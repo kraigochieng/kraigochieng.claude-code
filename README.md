@@ -1,16 +1,11 @@
 # kraigochieng.claude-code
 
-My Claude Code setup, kept in git like my other config repos.
+My Claude Code configuration, kept in git so I can use the same setup on any
+computer.
 
-This repo follows the same pattern as
-[kraigochieng.nvim](https://github.com/kraigochieng/kraigochieng.nvim) and
-[kraigochieng.zsh](https://github.com/kraigochieng/kraigochieng.zsh).
-The config directory is the git repo. There is no copy step and no symlink.
-
-| Repo | Directory it tracks |
-| --- | --- |
-| `kraigochieng.nvim` | `~/.config/nvim` |
-| `kraigochieng.claude-code` | `/etc/claude-code` |
+Clone the repo on a new machine and Claude Code behaves the same way as on my
+other machines. When I change the config on one machine, I push it and pull it
+on the others.
 
 ## Contents
 
@@ -29,4 +24,5 @@ git clone git@github.com:kraigochieng/kraigochieng.claude-code.git /etc/claude-c
 ## Change the config
 
 Edit the file in `/etc/claude-code`. Then use the normal workflow: open an
-issue, branch, commit, and open a PR.
+issue, branch, commit, and open a PR. After the merge, pull `main` on the
+other machines.
