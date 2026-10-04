@@ -26,3 +26,7 @@ git clone git@github.com:kraigochieng/kraigochieng.claude-code.git /etc/claude-c
 Edit the file in `/etc/claude-code`. Then use the normal workflow: open an
 issue, branch, commit, and open a PR. After the merge, pull `main` on the
 other machines.
+
+## License
+
+[MIT](LICENSE)
