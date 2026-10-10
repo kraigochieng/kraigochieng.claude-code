@@ -92,6 +92,9 @@ Follow ASD-STE100 (Simplified Technical English) strictly in all responses to th
 - Name the arguments in every function call when the language allows it (`mask(value=token, secret=True)`, not `mask(token, True)`). Leave positional-only built-ins and `*args` parameters as they are.
 - In a language without named arguments (JavaScript, TypeScript), take one options object and destructure it (`createUser({ name, role })`). Define its type with an `interface` or a `type`. Use this form for every function with more than one parameter, or with a boolean parameter.
 - In Python, mark optional and boolean parameters keyword-only with `*` in the definition, so a caller cannot pass them by position.
+- Give every function explicit types: each parameter and the return value. Do not leave a type to inference at a function boundary. Do not use `Any`, `object` as a shortcut, or an untyped `dict` or `list`. Write the element types (`dict[str, int]`).
+- In Python, check the types with `mypy --strict` (or an equal strict checker) in CI. Do not pin `python_version` in the checker config. Test on every Python version that CI runs.
+- In a typed language (TypeScript, Java, Go, Rust, C#, Kotlin, Swift), types are always required. In TypeScript, set `strict: true` and do not use `any`.
 - Use pydantic `BaseModel` classes for structured data. Do not pass plain dicts or dataclasses between functions. Keep a plain dict only for a free-form name-to-value map.
 - Validate data at the boundary (files, user input). Turn a validation error into a clear error message.
 - Keep unknown keys when the code rewrites a file that other tools own.
