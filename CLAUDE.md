@@ -101,6 +101,27 @@ Follow ASD-STE100 (Simplified Technical English) strictly in all responses to th
 - Validate data at the boundary (files, user input). Turn a validation error into a clear error message.
 - Keep unknown keys when the code rewrites a file that other tools own.
 
+## Structure
+
+- Give each module, class, and function one responsibility. A responsibility is one reason to change.
+- State the responsibility in one sentence without the word "and". If the sentence needs "and", split the unit.
+- Treat size as a symptom, not as a goal. A module of more than about 300 lines, or a function of more than about 60 lines, probably has a second responsibility. Look for it. Do not cut at a line count.
+- Before you write code, list the units and the one-sentence responsibility of each.
+- Put new code in the unit that owns the responsibility. If no unit owns it, create a new unit. Do not append the code to the nearest large file.
+- Name a unit by its responsibility (`parser.py`, `variables.py`). Do not use `utils`, `helpers`, or `misc`.
+- Let dependencies point one way. A shared helper does not import from the code that uses it.
+- Merge code that three places repeat. Leave code that two places repeat until a third place needs it.
+
+## Refactoring
+
+- A refactor changes the structure and never the behavior.
+- Separate a move from a change. One commit moves code. Another commit changes it.
+- Keep the public interface: import paths, entry points, command options, and output. Mark a commit `refactor!:` when it changes the interface.
+- Prove that the behavior is the same. The same tests pass. Edit a test only for an import path or a patch target, and name each edit in the pull request. Compare the output before and after (help text, screenshots, written files).
+- Check that a comparison loads both versions. A comparison that loads the same code twice proves nothing.
+- Work in small steps. Each commit builds and passes the tests. Use one pull request for each module or package.
+- Do not mix a refactor and a feature. If the structure blocks a feature, refactor first.
+
 ## Do Not Assume
 
 - Do not assume a naming convention for files or directories. Find them by content, and let the user register others.
