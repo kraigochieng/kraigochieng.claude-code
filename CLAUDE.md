@@ -92,7 +92,7 @@ Follow ASD-STE100 (Simplified Technical English) strictly in all responses to th
 - Put a rule that applies to one language in a section that names the language.
 - Before you add a rule, ask: "Does this rule hold in another language?" If not, make it an example or a language section.
 
-## Code Structure
+## Code Conventions
 
 - Put a one-sentence doc comment on every function and class. Say what it does, not how.
 - Use descriptive names. A name states the purpose (for example, `_chosen_config_dir`, not `_dir`). Do not use `done`, `data`, or `helper`.
@@ -181,6 +181,8 @@ Follow ASD-STE100 (Simplified Technical English) strictly in all responses to th
 - State what you tested and what you did not test.
 - State a known defect or limit, even when it is small.
 - When the user rejects a plan, change the plan file and ask again. Do not argue.
+
+# Language-Specific Rules
 
 ## Python
 
