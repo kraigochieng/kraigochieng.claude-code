@@ -84,6 +84,14 @@ Follow ASD-STE100 (Simplified Technical English) strictly in all responses to th
 
 # Coding Guidelines
 
+## Agnosticism
+
+- Write each guideline so that it applies to any language, framework, and tool.
+- State a rule as a principle. Do not name a language, framework, library, or tool in the rule.
+- Put a language-specific detail in an example. Mark the example with "for example".
+- Put a rule that applies to one language in a section that names the language.
+- Before you add a rule, ask: "Does this rule hold in another language?" If not, make it an example or a language section.
+
 ## Code Structure
 
 - Put a one-sentence docstring on every function and class. Say what it does, not how.
