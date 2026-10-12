@@ -94,18 +94,18 @@ Follow ASD-STE100 (Simplified Technical English) strictly in all responses to th
 
 ## Code Structure
 
-- Put a one-sentence docstring on every function and class. Say what it does, not how.
-- Use descriptive names. A name states the purpose (`_chosen_config_dir`, not `_dir`). Do not use `done`, `data`, or `helper`.
-- Use absolute imports (`from package.module import name`). Do not use relative imports.
-- Name the arguments in every function call when the language allows it (`mask(value=token, secret=True)`, not `mask(token, True)`). Leave positional-only built-ins and `*args` parameters as they are.
-- In a language without named arguments (JavaScript, TypeScript), take one options object and destructure it (`createUser({ name, role })`). Define its type with an `interface` or a `type`. Use this form for every function with more than one parameter, or with a boolean parameter.
-- In Python, mark optional and boolean parameters keyword-only with `*` in the definition, so a caller cannot pass them by position.
-- Give every function explicit types: each parameter and the return value. Do not leave a type to inference at a function boundary. Do not use `Any`, `object` as a shortcut, or an untyped `dict` or `list`. Write the element types (`dict[str, int]`).
-- Give every variable an explicit type hint, not only every function. This covers module constants (`Final[str]`), class variables (`ClassVar[...]`), type aliases (`TypeAlias`), and local variables (`checks: list[Check] = []`). Hint a name once, at its first assignment in the scope. Do not repeat the hint when you rebind it. Do not rebind a parameter with a new type. Use a new name.
-- Loop targets, `with ... as` names, `except ... as` names, and tuple-unpack targets cannot take an inline hint. Leave them to inference.
-- In Python, check the types with `mypy --strict` (or an equal strict checker) in CI. Run `ruff check` with the `F`, `I`, and `ANN` rules in CI. Note: no linter requires a hint on every local variable, so check this rule in review. Do not pin `python_version` in the checker config. Test on every Python version that CI runs.
-- In a typed language (TypeScript, Java, Go, Rust, C#, Kotlin, Swift), types are always required. In TypeScript, set `strict: true` and do not use `any`.
-- Use pydantic `BaseModel` classes for structured data. Do not pass plain dicts or dataclasses between functions. Keep a plain dict only for a free-form name-to-value map.
+- Put a one-sentence doc comment on every function and class. Say what it does, not how.
+- Use descriptive names. A name states the purpose (for example, `_chosen_config_dir`, not `_dir`). Do not use `done`, `data`, or `helper`.
+- Use absolute imports. Do not use relative imports.
+- Name the arguments in every function call when the language allows it (for example, `mask(value=token, secret=True)`, not `mask(token, True)`). Leave positional-only built-ins and variadic parameters as they are.
+- In a language without named arguments, take one options object and destructure it. Define its type. Use this form for every function with more than one parameter, or with a boolean parameter.
+- When the language allows it, mark optional and boolean parameters so that a caller cannot pass them by position.
+- Give every function explicit types: each parameter and the return value. Do not leave a type to inference at a function boundary. Do not use a catch-all type or an untyped collection. Write the element types.
+- Give every variable an explicit type, not only every function. This covers constants, class variables, type aliases, and local variables. Declare a name once, at its first assignment in the scope. Do not repeat the type when you rebind it. Do not rebind a parameter with a new type. Use a new name.
+- Some names cannot take an inline type: loop targets, `with ... as` names, `except ... as` names, and tuple-unpack targets. Leave them to inference.
+- Check the types with a strict type checker in CI. Run a linter in CI that requires types on functions. Note: no linter requires a type on every local variable, so check this rule in review. Do not pin the language version in the checker config. Test on every language version that CI runs.
+- In a typed language, types are always required. Turn on the strict mode of the compiler or checker. Do not use the catch-all type.
+- Use declared model types for structured data. Do not pass plain maps or unvalidated records between functions. Keep a plain map only for a free-form name-to-value map.
 - Validate data at the boundary (files, user input). Turn a validation error into a clear error message.
 - Keep unknown keys when the code rewrites a file that other tools own.
 
@@ -116,7 +116,7 @@ Follow ASD-STE100 (Simplified Technical English) strictly in all responses to th
 - Treat size as a symptom, not as a goal. A module of more than about 300 lines, or a function of more than about 60 lines, probably has a second responsibility. Look for it. Do not cut at a line count.
 - Before you write code, list the units and the one-sentence responsibility of each.
 - Put new code in the unit that owns the responsibility. If no unit owns it, create a new unit. Do not append the code to the nearest large file.
-- Name a unit by its responsibility (`parser.py`, `variables.py`). Do not use `utils`, `helpers`, or `misc`.
+- Name a unit by its responsibility (for example, `parser`, `variables`). Do not use `utils`, `helpers`, or `misc`.
 - Let dependencies point one way. A shared helper does not import from the code that uses it.
 - Merge code that three places repeat. Leave code that two places repeat until a third place needs it.
 
@@ -139,7 +139,7 @@ Follow ASD-STE100 (Simplified Technical English) strictly in all responses to th
 ## Do Not Assume
 
 - Do not assume a naming convention for files or directories. Find them by content, and let the user register others.
-- Do not hard-code Linux paths. Use `platformdirs` for the config, data, and cache directories. Support Linux, macOS, and Windows.
+- Do not hard-code the paths of one operating system. Use the platform library for the config, data, and cache directories. Support Linux, macOS, and Windows.
 - Do not add a feature that no code reads. If a user questions the complexity, remove the feature.
 - Do not assume how another tool works. Test it with a real run, for example with a fake local server, before you document it.
 
@@ -147,7 +147,7 @@ Follow ASD-STE100 (Simplified Technical English) strictly in all responses to th
 
 - Never print, log, or put a secret in an error message. Mask secrets on screen.
 - Never read a secret from a command argument. Use a hidden prompt or stdin.
-- Write files that hold secrets atomically (temporary file, then rename) with mode `0600`.
+- Write files that hold secrets atomically (temporary file, then rename) with owner-only permissions (for example, mode `0600`).
 - Send a request with a secret only to the host the user set. Do not follow redirects.
 
 ## User Interface
@@ -162,7 +162,7 @@ Follow ASD-STE100 (Simplified Technical English) strictly in all responses to th
 ## Tests
 
 - Write tests with the code. Run the full test suite before each commit.
-- Isolate tests from the real home directory, the real environment, and the network. Use `tmp_path`, injected parameters, and mock transports.
+- Isolate tests from the real home directory, the real environment, and the network. Use temporary directories, injected parameters, and mock transports.
 - Add a test for each error path, not only for the success path.
 - Check that CI passes before you merge.
 
@@ -181,3 +181,20 @@ Follow ASD-STE100 (Simplified Technical English) strictly in all responses to th
 - State what you tested and what you did not test.
 - State a known defect or limit, even when it is small.
 - When the user rejects a plan, change the plan file and ask again. Do not argue.
+
+## Python
+
+- Mark optional and boolean parameters keyword-only with `*` in the definition, so a caller cannot pass them by position.
+- Use absolute imports (`from package.module import name`).
+- Do not use `Any`, `object` as a shortcut, or an untyped `dict` or `list`. Write the element types (`dict[str, int]`).
+- Hint constants with `Final[str]`, class variables with `ClassVar[...]`, and type aliases with `TypeAlias`. Hint a local variable at its first assignment (`checks: list[Check] = []`).
+- Check the types with `mypy --strict` (or an equal strict checker) in CI. Run `ruff check` with the `F`, `I`, and `ANN` rules in CI.
+- Do not pin `python_version` in the checker config. Test on every Python version that CI runs.
+- Use pydantic `BaseModel` classes for structured data. Do not pass plain dicts or dataclasses between functions.
+- Use `platformdirs` for the config, data, and cache directories.
+- Use `tmp_path` to isolate tests from the real home directory.
+
+## TypeScript
+
+- Take one options object and destructure it (`createUser({ name, role })`). Define its type with an `interface` or a `type`.
+- Set `strict: true`. Do not use `any`.
