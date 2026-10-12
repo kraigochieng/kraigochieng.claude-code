@@ -112,6 +112,12 @@ Follow ASD-STE100 (Simplified Technical English) strictly in all responses to th
 - Let dependencies point one way. A shared helper does not import from the code that uses it.
 - Merge code that three places repeat. Leave code that two places repeat until a third place needs it.
 
+## Data Access
+
+- Put all data access in a repository. The repository owns the queries and the storage calls.
+- Do not read or write the data store outside a repository.
+- Give the repository a typed interface. Return the structured types of the project, not raw rows.
+
 ## Refactoring
 
 - A refactor changes the structure and never the behavior.
@@ -135,6 +141,15 @@ Follow ASD-STE100 (Simplified Technical English) strictly in all responses to th
 - Never read a secret from a command argument. Use a hidden prompt or stdin.
 - Write files that hold secrets atomically (temporary file, then rename) with mode `0600`.
 - Send a request with a secret only to the host the user set. Do not follow redirects.
+
+## User Interface
+
+- Ask for confirmation before every destructive action. Name the item in the confirmation.
+- Give every table pagination, sorting, filtering, and search. Keep the values of these four in the URL query parameters.
+- Save the input of a form as the user types. Restore the input when the user returns to the page. Clear the saved input when the form submits.
+- Do not save a secret field in the saved form input.
+- Give every number input with a limited range a slider.
+- Give every free-text input a clear option.
 
 ## Tests
 
