@@ -116,7 +116,7 @@ Follow ASD-STE100 (Simplified Technical English) strictly in all responses to th
 
 - Put all data access in a repository. The repository owns the queries and the storage calls.
 - Do not read or write the data store outside a repository.
-- Give the repository a typed interface. Return pydantic models, not raw rows.
+- Give the repository a typed interface. Return the structured types of the project, not raw rows.
 
 ## Refactoring
 
