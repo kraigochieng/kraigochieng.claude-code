@@ -220,6 +220,15 @@ A plan for a feature, a fix, or a refactor has these sections, in this order:
 - Give every number input with a limited range a slider.
 - Give every free-text input a clear option.
 
+### Pure Components
+
+- Write each component as a pure component by default. A pure component renders the same output for the same props and state.
+- Pass all data to a component as props. Do not read hidden state during render (for example, a global variable, the clock, or a random source).
+- Do not change props or shared state during render.
+- Keep side effects out of render. Put them in event handlers or in the lifecycle hooks of the framework (for example, `useEffect` in React).
+- Split a component into a presentational component and a container. The presentational component only renders. The container fetches data and holds state.
+- Mark a component that has a side effect in its name or its doc comment.
+
 ## Tests
 
 - Write tests with the code. Run the full test suite before each commit.
