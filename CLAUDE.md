@@ -169,6 +169,16 @@ A plan for a feature, a fix, or a refactor has these sections, in this order:
 - Let dependencies point one way. A shared helper does not import from the code that uses it.
 - Merge code that three places repeat. Leave code that two places repeat until a third place needs it.
 
+## Pure Functions
+
+- Write each function as a pure function by default. A pure function returns the same output for the same input and has no side effect.
+- Pass every value that a function needs as a parameter. Do not read hidden state (for example, a global variable, the clock, the environment, or a random source).
+- Do not change a parameter or any shared state. Return a new value.
+- Keep side effects (input and output, storage, network, time, randomness) in a thin outer layer. Pass their results into the pure functions.
+- Inject a side-effect dependency (for example, a clock or a transport) as a parameter when a function must use one.
+- Test a pure function with input and expected output. It needs no mock.
+- Mark a function that has a side effect in its name or its doc comment, so a reader can see it.
+
 ## Data Access
 
 - Put all data access in a repository. The repository owns the queries and the storage calls.
