@@ -193,6 +193,7 @@ Follow ASD-STE100 (Simplified Technical English) strictly in all responses to th
 - Check the types with `mypy --strict` (or an equal strict checker) in CI. Run `ruff check` with the `F`, `I`, and `ANN` rules in CI.
 - Do not pin `python_version` in the checker config. Test on every Python version that CI runs.
 - Use pydantic `BaseModel` classes for structured data. Do not pass plain dicts or dataclasses between functions.
+- Use `polars` for data analysis. Do not use `pandas`. `polars` is faster.
 - Use `platformdirs` for the config, data, and cache directories.
 - Use `tmp_path` to isolate tests from the real home directory.
 
