@@ -147,6 +147,8 @@ Follow ASD-STE100 (Simplified Technical English) strictly in all responses to th
 
 - Never print, log, or put a secret in an error message. Mask secrets on screen.
 - Never read a secret from a command argument. Use a hidden prompt or stdin.
+- Keep secret keys in a `.env` file. Do not put a secret in source code or in a tracked config file.
+- Add the `.env` file to the ignore list of the version control system (for example, `.gitignore`). Commit a `.env.example` file that has the key names and no values.
 - Write files that hold secrets atomically (temporary file, then rename) with owner-only permissions (for example, mode `0600`).
 - Send a request with a secret only to the host the user set. Do not follow redirects.
 
