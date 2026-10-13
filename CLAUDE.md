@@ -82,6 +82,55 @@ Follow ASD-STE100 (Simplified Technical English) strictly in all responses to th
 - Preserve technical precision. When a fact is uncertain, state clearly what is uncertain.
 - Commit messages, pull request text, and code comments follow the same rules where the other rules in this file allow.
 
+# Communication Pattern
+
+This section is a draft. Refine it as the work goes on.
+
+## Structure
+
+- Put the answer or the recommendation first. Put the reasons after it.
+- Use a fixed structure for a plan, a proposal, or a technical explanation. Do not write one as free prose.
+- Answer a small question in a few sentences. Use the fixed structure only for work that has more than one step.
+
+## Design Document
+
+A plan for a feature, a fix, or a refactor has these sections, in this order:
+
+1. Header table: issue, status, dependencies, decisions from the owner.
+2. Context: the problem and what prompted the work.
+3. Goals and non-goals, in two columns.
+4. Current state and proposed state, each with a diagram.
+5. Design decisions: a table with decision, choice, and reason.
+6. Alternatives considered: a table with option and reason for rejection.
+7. Work breakdown: a table with pull request, commit, commit type, and check.
+8. Risks: a table with risk, effect, and mitigation.
+9. Rollout: numbered steps. Mark the steps that only the owner can do.
+10. Verification: a table with check, command, and status.
+11. Open questions.
+
+## Pseudocode
+
+- Show the logic of each planned change as pseudocode before you write code.
+- Write pseudocode in the same order as the commits.
+- Use plain keywords (GIVEN, WHEN, THEN, FOR, ASSERT). Name no language.
+- Keep each block short. A block longer than about 15 lines needs a split.
+
+## Tables and Diagrams
+
+- Use a table for a list in which each item has more than one attribute.
+- Use a diagram for a system that has more than two parts.
+- Do not put a list of steps in a table. Use a numbered list.
+
+## Decision Record
+
+- Write one decision record for each decision that is hard to reverse.
+- A decision record has three parts: context, decision, and consequences.
+
+## Status
+
+- Give each check a status: run, not run, or owner action.
+- Do not write "done" for a check that you did not run.
+
 # Coding Guidelines
 
 ## Agnosticism
