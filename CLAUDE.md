@@ -49,10 +49,9 @@ Follow a senior-developer workflow. An issue tracks every change. Each change ha
 
 ## Branches
 
-- `WORKFLOW-04` Never commit directly to the default branch (`main`/`master`). Always branch from an up-to-date default branch.
-- `WORKFLOW-05` Use one branch per issue, named `<type>/<issue-number>-<short-kebab-description>`, where `<type>` matches the Conventional Commit type (e.g. `feat/42-add-login`, `fix/57-null-pointer-on-save`, `docs/63-update-readme`).
-- `WORKFLOW-06` Keep branches short-lived and focused on a single issue. Do not mix unrelated work on one branch.
-- `WORKFLOW-07` Once a branch's pull request is merged and its issue is closed, delete the branch both locally and on the remote (`git branch -d <branch>`, `git push origin --delete <branch>`). Never delete the default branch or deployment branches such as `gh-pages`.
+- `WORKFLOW-04` Never commit directly to the default branch (`main` or `master`). Always branch from an up-to-date default branch.
+- `WORKFLOW-05` Use one branch for each issue. Name it `<type>/<issue-number>-<short-kebab-description>`, where `<type>` matches the Conventional Commit type (for example, `feat/42-add-login`, `docs/63-update-readme`). Keep the branch short-lived. Do not mix unrelated work on one branch.
+- `WORKFLOW-06` After the pull request merges and the issue closes, delete the branch locally and on the remote (`git branch -d <branch>`, `git push origin --delete <branch>`). Never delete the default branch or a deployment branch such as `gh-pages`.
 
 ## Commits and Pull Requests
 
