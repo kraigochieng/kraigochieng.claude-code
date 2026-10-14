@@ -225,6 +225,10 @@ A plan for a feature, a fix, or a refactor has these sections, in this order:
 - Do not hard-code the paths of one operating system. Use the platform library for the config, data, and cache directories. Support Linux, macOS, and Windows.
 - Do not add a feature that no code reads. If a user questions the complexity, remove the feature.
 - Do not assume how another tool works. Test it with a real run, for example with a fake local server, before you document it.
+- When a project starts, list each choice of library or tool that this file does not name for the language of the project. Ask the user to research and decide each choice.
+- Do not choose a library or a tool for the user. The user makes the decision.
+- Do not start research on candidates unless the user asks. When the user asks, help with the research and leave the conclusion to the user.
+- Record each decision of the user in a decision record.
 
 ## Security
 
@@ -236,7 +240,7 @@ A plan for a feature, a fix, or a refactor has these sections, in this order:
 - Send a request with a secret only to the host the user set. Do not follow redirects.
 - Read environment variables through a settings library. The library declares each setting with a type, validates it at start, and masks each secret on print. Do not read the environment directly in application code.
 - Use the secret type of the settings library for each secret setting. A secret value never appears in a log, a repr, or an error message.
-- Choose the settings library for a language when the project starts. Prefer a library that supports a `.env` file and a secrets directory.
+- Ask the user to choose the settings library for a language when the project starts (see "Do Not Assume"). A library that supports a `.env` file and a secrets directory is a good fit.
 
 ## User Interface
 
