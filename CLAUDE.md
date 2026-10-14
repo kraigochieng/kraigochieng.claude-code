@@ -121,8 +121,7 @@ This section is a draft. Refine it as the work goes on.
 
 ## Decision Record
 
-- `COMMUNICATION-11` Write one decision record for each decision that is hard to reverse.
-- `COMMUNICATION-12` A decision record has three parts: context, decision, and consequences.
+- `COMMUNICATION-12` Write one decision record for each decision that is hard to reverse. A decision record has three parts: context, decision, and consequences.
 
 ## Status
 
