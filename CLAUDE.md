@@ -202,8 +202,8 @@ This section is a draft. Refine it as the work goes on.
 - `REFACTOR-03` Keep the public interface: import paths, entry points, command options, and output. Mark a commit `refactor!:` when it changes the interface.
 - `REFACTOR-04` Prove that the behavior is the same. The same tests pass. Edit a test only for an import path or a patch target, and name each edit in the pull request. Compare the output before and after (help text, screenshots, written files).
 - `REFACTOR-05` Check that a comparison loads both versions. A comparison that loads the same code twice proves nothing.
-- `REFACTOR-06` Work in small steps. Each commit builds and passes the tests. Use one pull request for each module or package.
-- `REFACTOR-07` Do not mix a refactor and a feature. If the structure blocks a feature, refactor first.
+- `REFACTOR-06` Work in small steps. Use one pull request for each module or package.
+- `REFACTOR-07` Do not mix a refactor, a rename, a feature, or a docs change in one commit. If the structure blocks a feature, refactor first.
 
 ## Do Not Assume
 
