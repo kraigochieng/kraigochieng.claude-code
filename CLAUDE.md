@@ -229,6 +229,28 @@ A plan for a feature, a fix, or a refactor has these sections, in this order:
 - Split a component into a presentational component and a container. The presentational component only renders. The container fetches data and holds state.
 - Mark a component that has a side effect in its name or its doc comment.
 
+## HTTP APIs
+
+- Limit the request rate for each client. Return status 429 with a `Retry-After` header when a client exceeds the limit.
+- Put a version in every API, in the URL path or in a header. Do not change a published version in a breaking way.
+- Add fields in a version. Do not remove or rename a field in the same version.
+- Return one error structure for all errors. Include a code, a message, and a request ID.
+- Paginate every list endpoint. Set a maximum page size.
+- Make PUT and DELETE idempotent. Accept an idempotency key for a POST that creates a resource.
+- Require authentication on every endpoint by default. Mark each public endpoint explicitly.
+- Check the permission of the caller on the server for every request.
+- Validate every request body and parameter at the boundary. Reject unknown input.
+- Set a timeout on every outgoing call. Set a size limit on every request.
+- Log each request with its request ID. Do not log a secret. Expose a health check endpoint.
+- Allow only listed origins for cross-origin requests. Do not use a wildcard for an authenticated endpoint.
+- Announce the removal of a version with a `Deprecation` header and a date. Keep the old version until that date.
+- Generate a machine-readable description of the API from the code (for example, an OpenAPI document). Check it in CI.
+
+### Data and Dependencies
+
+- Make each database migration reversible. Do not mix a schema change with a data change in one migration.
+- Pin the version of each dependency. Scan the dependencies for known vulnerabilities in CI.
+
 ## Tests
 
 - Write tests with the code. Run the full test suite before each commit.
