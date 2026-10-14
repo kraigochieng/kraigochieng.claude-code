@@ -43,9 +43,9 @@ Follow a senior-developer workflow. An issue tracks every change. Each change ha
 
 ## Issues
 
-- `WORKFLOW-01` Before starting work, check for an existing issue that covers it (`gh issue list`, `gh issue view`). If none exists, create one (`gh issue create`) with a clear title, the problem or goal, and acceptance criteria.
-- `WORKFLOW-02` One issue per feature, bug, or task. Split large work into smaller linked issues.
-- `WORKFLOW-03` Apply labels (e.g. `bug`, `enhancement`, `documentation`) where the repo uses them.
+- `WORKFLOW-01` Before work starts, check for an existing issue that covers it (`gh issue list`, `gh issue view`). If none exists, create one (`gh issue create`). Give it a clear title, the problem or goal, and acceptance criteria.
+- `WORKFLOW-02` Use one issue for each feature, bug, or task. Split large work into smaller linked issues.
+- `WORKFLOW-03` Apply labels (for example, `bug`, `enhancement`, `documentation`) where the repository uses them.
 
 ## Branches
 
