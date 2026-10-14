@@ -217,15 +217,12 @@ This section is a draft. Refine it as the work goes on.
 
 ## Security
 
-- `SECURITY-01` Never print, log, or put a secret in an error message. Mask secrets on screen.
+- `SECURITY-01` Never print, log, or put a secret in an error message or a repr. Mask secrets on screen.
 - `SECURITY-02` Never read a secret from a command argument. Use a hidden prompt or stdin.
-- `SECURITY-03` Keep secret keys in a `.env` file. Do not put a secret in source code or in a tracked config file.
-- `SECURITY-04` Add the `.env` file to the ignore list of the version control system (for example, `.gitignore`). Commit a `.env.example` file that has the key names and no values.
-- `SECURITY-05` Write files that hold secrets atomically (temporary file, then rename) with owner-only permissions (for example, mode `0600`).
-- `SECURITY-06` Send a request with a secret only to the host the user set. Do not follow redirects.
-- `SECURITY-07` Read environment variables through a settings library. The library declares each setting with a type, validates it at start, and masks each secret on print. Do not read the environment directly in application code.
-- `SECURITY-08` Use the secret type of the settings library for each secret setting. A secret value never appears in a log, a repr, or an error message.
-- `SECURITY-09` Ask the user to choose the settings library for a language when the project starts (see "Do Not Assume"). A library that supports a `.env` file and a secrets directory is a good fit.
+- `SECURITY-03` Keep secret keys in a `.env` file. Do not put a secret in source code or in a tracked config file. Add the `.env` file to the ignore list of the version control system (for example, `.gitignore`). Commit a `.env.example` file that has the key names and no values.
+- `SECURITY-04` Write files that hold secrets atomically (temporary file, then rename) with owner-only permissions (for example, mode `0600`).
+- `SECURITY-05` Send a request with a secret only to the host the user set. Do not follow redirects.
+- `SECURITY-06` Read environment variables through a settings library that the user chooses (see `ASSUMPTIONS-05`). The library types each setting, validates it at start, and masks each secret on print. Use its secret type for each secret setting. Do not read the environment directly in application code. A library that supports a `.env` file and a secrets directory is a good fit.
 
 ## User Interface
 
