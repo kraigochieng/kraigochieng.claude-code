@@ -140,16 +140,15 @@ This section is a draft. Refine it as the work goes on.
 - `CONVENTIONS-02` Use descriptive names. A name states the purpose (for example, `_chosen_config_dir`, not `_dir`). Do not use `done`, `data`, or `helper`.
 - `CONVENTIONS-03` Use absolute imports. Do not use relative imports.
 - `CONVENTIONS-04` Name the arguments in every function call when the language allows it (for example, `mask(value=token, secret=True)`, not `mask(token, True)`). Leave positional-only built-ins and variadic parameters as they are.
-- `CONVENTIONS-05` In a language without named arguments, take one options object and destructure it. Define its type. Use this form for every function with more than one parameter, or with a boolean parameter.
+- `CONVENTIONS-05` In a language without named arguments, take one options object and destructure it. Define its type. Use this form for every function that has more than one parameter or a boolean parameter.
 - `CONVENTIONS-06` When the language allows it, mark optional and boolean parameters so that a caller cannot pass them by position.
-- `CONVENTIONS-07` Give every function explicit types: each parameter and the return value. Do not leave a type to inference at a function boundary. Do not use a catch-all type or an untyped collection. Write the element types.
-- `CONVENTIONS-08` Give every variable an explicit type, not only every function. This covers constants, class variables, type aliases, and local variables. Declare a name once, at its first assignment in the scope. Do not repeat the type when you rebind it. Do not rebind a parameter with a new type. Use a new name.
-- `CONVENTIONS-09` Some names cannot take an inline type: loop targets, `with ... as` names, `except ... as` names, and tuple-unpack targets. Leave them to inference.
-- `CONVENTIONS-10` Check the types with a strict type checker in CI. Run a linter in CI that requires types on functions. Note: no linter requires a type on every local variable, so check this rule in review. Do not pin the language version in the checker config. Test on every language version that CI runs.
-- `CONVENTIONS-11` In a typed language, types are always required. Turn on the strict mode of the compiler or checker. Do not use the catch-all type.
-- `CONVENTIONS-12` Use declared model types for structured data. Do not pass plain maps or unvalidated records between functions. Keep a plain map only for a free-form name-to-value map.
-- `CONVENTIONS-13` Validate data at the boundary (files, user input). Turn a validation error into a clear error message.
-- `CONVENTIONS-14` Keep unknown keys when the code rewrites a file that other tools own.
+- `CONVENTIONS-07` Give every function explicit types for each parameter and for the return value. Do not leave a type to inference at a function boundary. Do not use a catch-all type or an untyped collection. Write the element types.
+- `CONVENTIONS-08` Give every variable an explicit type: constants, class variables, type aliases, and local variables. Declare a name once, at its first assignment in the scope. Do not repeat the type when you rebind it. Do not rebind a parameter with a new type. Use a new name.
+- `CONVENTIONS-09` Leave to inference the names that cannot take an inline type: loop targets, `with ... as` names, `except ... as` names, and tuple-unpack targets.
+- `CONVENTIONS-10` In a typed language, turn on the strict mode of the compiler or type checker. Run the strict checker, and a linter that requires types on functions, in CI. No linter requires a type on every local variable, so check that rule in review. Do not pin the language version in the checker config. Test on every language version that CI runs.
+- `CONVENTIONS-11` Use declared model types for structured data. Do not pass plain maps or unvalidated records between functions. Keep a plain map only for a free-form name-to-value map.
+- `CONVENTIONS-12` Validate data at the boundary (files, user input). Turn a validation error into a clear error message.
+- `CONVENTIONS-13` Keep unknown keys when the code rewrites a file that other tools own.
 
 ## Structure
 
