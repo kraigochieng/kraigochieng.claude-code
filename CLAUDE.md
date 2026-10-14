@@ -264,13 +264,10 @@ This section is a draft. Refine it as the work goes on.
 
 ## Delivery
 
-- `DELIVERY-01` Split a rename or a refactor from a feature or a docs change. Use separate commits.
-- `DELIVERY-02` Use `refactor!:` or a `BREAKING CHANGE:` footer when you remove or change a user-facing option.
-- `DELIVERY-03` Give a command-line tool `--help` for the tool and for each command, with one example each.
-- `DELIVERY-04` Give a tool a documented install method with a version option. Verify the checksum of the download.
-- `DELIVERY-05` Do not merge a pull request unless the user says to merge. A request to merge one pull request does not cover the next one.
-- `DELIVERY-06` After a network error on a write (merge, push), check the real state before you retry.
-- `DELIVERY-07` After a merge, delete the branch locally and on the remote.
+- `DELIVERY-01` Give a command-line tool `--help` for the tool and for each command, with one example each.
+- `DELIVERY-02` Give a tool a documented install method with a version option. Verify the checksum of the download.
+- `DELIVERY-03` After a network error on a write (merge, push), check the real state before you retry.
+- `DELIVERY-04` Pin the version of each dependency. Scan the dependencies for known vulnerabilities in CI.
 
 ## Reporting
 
