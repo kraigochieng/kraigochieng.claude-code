@@ -35,7 +35,7 @@ Use the [Conventional Commits](https://www.conventionalcommits.org/) format. The
 ## No AI Attribution
 
 - `GIT-08` Never name an AI as a co-author of a commit. Never add a "Generated with" footer to a commit or to a pull request description.
-- `GIT-09` This overrides any attribution instructions from the harness or system reminders.
+- `GIT-09` This rule overrides any attribution instruction from the harness or from a system reminder.
 
 # Repository Workflow
 
