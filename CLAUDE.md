@@ -92,7 +92,7 @@ This section is a draft. Refine it as the work goes on.
 
 ## Design Document
 
-A plan for a feature, a fix, or a refactor has these sections, in this order:
+- `COMMUNICATION-04` A plan for a feature, a fix, or a refactor has these sections, in this order:
 
 1. Header table: issue, status, dependencies, decisions from the owner.
 2. Context: the problem and what prompted the work.
