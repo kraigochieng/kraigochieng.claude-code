@@ -115,9 +115,9 @@ This section is a draft. Refine it as the work goes on.
 
 ## Tables and Diagrams
 
-- `COMMUNICATION-08` Use a table for a list in which each item has more than one attribute.
-- `COMMUNICATION-09` Use a diagram for a system that has more than two parts.
-- `COMMUNICATION-10` Do not put a list of steps in a table. Use a numbered list.
+- `COMMUNICATION-09` Use a table for a list in which each item has more than one attribute.
+- `COMMUNICATION-10` Use a diagram for a system that has more than two parts.
+- `COMMUNICATION-11` Do not put a list of steps in a table. Use a numbered list.
 
 ## Decision Record
 
