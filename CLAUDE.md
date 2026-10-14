@@ -170,7 +170,7 @@ This section is a draft. Refine it as the work goes on.
 - `PURITY-04` Keep side effects (input and output, storage, network, time, randomness) in a thin outer layer. Pass their results into the pure functions.
 - `PURITY-05` Inject a side-effect dependency (for example, a clock or a transport) as a parameter when a function must use one.
 - `PURITY-06` Test a pure function with input and expected output. It needs no mock.
-- `PURITY-07` Mark a function that has a side effect in its name or its doc comment, so a reader can see it.
+- `PURITY-07` Mark a function or a component that has a side effect in its name or its doc comment, so that a reader can see it.
 
 ## Data Access
 
