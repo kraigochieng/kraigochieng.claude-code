@@ -235,6 +235,7 @@ A plan for a feature, a fix, or a refactor has these sections, in this order:
 - Put a version in every API, in the URL path or in a header. Do not change a published version in a breaking way.
 - Add fields in a version. Do not remove or rename a field in the same version.
 - Return one error structure for all errors. Include a code, a message, and a request ID.
+- State the HTTP status code in the controller for each success path and each error path. Do not let a framework default choose the status code.
 - Paginate every list endpoint. Set a maximum page size.
 - Make PUT and DELETE idempotent. Accept an idempotency key for a POST that creates a resource.
 - Require authentication on every endpoint by default. Mark each public endpoint explicitly.
