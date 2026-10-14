@@ -228,19 +228,15 @@ This section is a draft. Refine it as the work goes on.
 
 - `UI-01` Ask for confirmation before every destructive action. Name the item in the confirmation.
 - `UI-02` Give every table pagination, sorting, filtering, and search. Keep the values of these four in the URL query parameters.
-- `UI-03` Save the input of a form as the user types. Restore the input when the user returns to the page. Clear the saved input when the form submits.
-- `UI-04` Do not save a secret field in the saved form input.
-- `UI-05` Give every number input with a limited range a slider.
-- `UI-06` Give every free-text input a clear option.
+- `UI-03` Save the input of a form as the user types. Restore the input when the user returns to the page. Clear the saved input when the form submits. Do not save a secret field.
+- `UI-04` Give every number input with a limited range a slider.
+- `UI-05` Give every free-text input a clear option.
 
 ### Pure Components
 
-- `PURITY-08` Write each component as a pure component by default. A pure component renders the same output for the same props and state.
-- `PURITY-09` Pass all data to a component as props. Do not read hidden state during render (for example, a global variable, the clock, or a random source).
-- `PURITY-10` Do not change props or shared state during render.
-- `PURITY-11` Keep side effects out of render. Put them in event handlers or in the lifecycle hooks of the framework (for example, `useEffect` in React).
-- `PURITY-12` Split a component into a presentational component and a container. The presentational component only renders. The container fetches data and holds state.
-- `PURITY-13` Mark a component that has a side effect in its name or its doc comment.
+- `PURITY-08` Write each component as a pure component by default. A pure component renders the same output for the same props and state. Pass all data as props. Do not read hidden state, and do not change props or shared state, during render.
+- `PURITY-09` Keep side effects out of render. Put them in event handlers or in the lifecycle hooks of the framework (for example, `useEffect` in React).
+- `PURITY-10` Split a component into a presentational component and a container. The presentational component only renders. The container fetches data and holds state.
 
 ## HTTP APIs
 
