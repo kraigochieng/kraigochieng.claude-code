@@ -181,13 +181,11 @@ This section is a draft. Refine it as the work goes on.
 ## Layers
 
 - `LAYERS-01` Split a service that handles requests into three layers: controller, service, and repository.
-- `LAYERS-02` Let the controller own transport behavior only. It parses and validates the request, calls one service, and maps the result to a response.
-- `LAYERS-03` Do not put a business rule or a data access call in a controller.
-- `LAYERS-04` Let the service own business behavior only. It takes typed input and returns a typed result.
-- `LAYERS-05` Do not let a service use transport concepts (for example, a request object, a response object, a status code, or a header).
-- `LAYERS-06` Raise a domain error in the service. Map the domain error to a transport status in the controller.
-- `LAYERS-07` Let dependencies point one way: controller to service, and service to repository. A lower layer does not import from a higher layer.
-- `LAYERS-08` Test a service without a transport. Test a controller with a fake service.
+- `LAYERS-02` Let the controller own transport behavior only. It parses and validates the request, calls one service, and maps the result to a response. Do not put a business rule or a data access call in a controller.
+- `LAYERS-03` Let the service own business behavior only. It takes typed input and returns a typed result. Do not let a service use transport concepts (for example, a request object, a response object, a status code, or a header).
+- `LAYERS-04` Raise a domain error in the service. Map the domain error to a transport status in the controller.
+- `LAYERS-05` Let dependencies point one way: controller to service, and service to repository. A lower layer does not import from a higher layer.
+- `LAYERS-06` Test a service without a transport. Test a controller with a fake service.
 
 ## Errors
 
