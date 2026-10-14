@@ -28,8 +28,8 @@ Use the [Conventional Commits](https://www.conventionalcommits.org/) format. The
 ## Atomic Commits
 
 - `GIT-04` Each commit must contain exactly one logical change. Do not mix unrelated changes (for example, a feature and a refactor). Split them into separate commits.
-- `GIT-05` Each commit should leave the codebase in a working state (builds and tests pass).
-- `GIT-06` Stage changes selectively (e.g. `git add -p`) to keep commits focused.
+- `GIT-05` Each commit should leave the codebase in a working state (the build and the tests pass).
+- `GIT-06` Stage changes selectively (for example, `git add -p`) to keep commits focused.
 - `GIT-07` Include related tests and docs in the same commit as the change they cover.
 
 ## No AI Attribution
