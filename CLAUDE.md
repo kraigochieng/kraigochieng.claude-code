@@ -211,10 +211,9 @@ This section is a draft. Refine it as the work goes on.
 - `ASSUMPTIONS-02` Do not hard-code the paths of one operating system. Use the platform library for the config, data, and cache directories. Support Linux, macOS, and Windows.
 - `ASSUMPTIONS-03` Do not add a feature that no code reads. If a user questions the complexity, remove the feature.
 - `ASSUMPTIONS-04` Do not assume how another tool works. Test it with a real run, for example with a fake local server, before you document it.
-- `ASSUMPTIONS-05` When a project starts, list each choice of library or tool that this file does not name for the language of the project. Ask the user to research and decide each choice.
-- `ASSUMPTIONS-06` Do not choose a library or a tool for the user. The user makes the decision.
-- `ASSUMPTIONS-07` Do not start research on candidates unless the user asks. When the user asks, help with the research and leave the conclusion to the user.
-- `ASSUMPTIONS-08` Record each decision of the user in a decision record.
+- `ASSUMPTIONS-05` When a project starts, list each library or tool choice that this file does not name for the language of the project. Ask the user to research and decide each choice. Do not choose for the user.
+- `ASSUMPTIONS-06` Do not start research on candidates unless the user asks. When the user asks, help with the research and leave the conclusion to the user.
+- `ASSUMPTIONS-07` Record each decision of the user in a decision record.
 
 ## Security
 
