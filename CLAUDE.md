@@ -4,7 +4,7 @@ Follow these rules for every commit.
 
 ## Conventional Commits
 
-Use the [Conventional Commits](https://www.conventionalcommits.org/) format so that semantic versioning can be derived from the commit history:
+Use the [Conventional Commits](https://www.conventionalcommits.org/) format. The format lets tools derive the semantic version from the commit history.
 
 ```
 <type>[optional scope]: <description>
@@ -22,7 +22,7 @@ Use the [Conventional Commits](https://www.conventionalcommits.org/) format so t
 | `fix` | A bug fix | PATCH |
 | `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`, `revert` | Other change | none, unless marked breaking |
 
-- `GIT-02` Breaking changes: add `!` after the type/scope (e.g. `feat!: ...`) and/or a `BREAKING CHANGE:` footer (triggers a MAJOR version bump)
+- `GIT-02` Mark a breaking change with `!` after the type or scope (for example, `feat!: ...`), with a `BREAKING CHANGE:` footer, or with both. A breaking change triggers a MAJOR bump. A removed or changed user-facing option is a breaking change.
 - `GIT-03` Write the description in the imperative mood, lowercase, with no trailing period.
 
 ## Atomic Commits
