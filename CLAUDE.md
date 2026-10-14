@@ -127,6 +127,15 @@ This section is a draft. Refine it as the work goes on.
 
 - `COMMUNICATION-13` Give each check a status: run, not run, or owner action. Do not write "done" for a check that you did not run.
 
+## State Machines
+
+- `COMMUNICATION-14` Explain a process that has states and events (for example an invite, an order, or a job) as a state machine. Do not explain it as a story.
+- `COMMUNICATION-15` Name every state and every event. Mark the start state and the end states.
+- `COMMUNICATION-16` Show the transitions in a table with the columns from-state, event, to-state, and action. Add a diagram when the process has more than two states.
+- `COMMUNICATION-17` Show each decision in a table: the conditions on the left and the result on the right. Include the refusal cases, with the reason the user sees.
+- `COMMUNICATION-18` Check three things before you finish: each state has a way out or is an end state, each event is handled in each state, and an event that changes nothing is shown as refused or ignored.
+- `COMMUNICATION-19` When you design a feature that has states, write the states and transitions first. Then write the decision as one pure function over the states, and test each row of the decision table.
+
 # Coding Guidelines
 
 ## Agnosticism
