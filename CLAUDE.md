@@ -152,16 +152,15 @@ This section is a draft. Refine it as the work goes on.
 
 ## Structure
 
-- `STRUCTURE-01` Give each module, class, and function one responsibility. A responsibility is one reason to change.
-- `STRUCTURE-02` State the responsibility in one sentence without the word "and". If the sentence needs "and", split the unit.
-- `STRUCTURE-03` Treat size as a symptom, not as a goal. A module of more than about 300 lines, or a function of more than about 60 lines, probably has a second responsibility. Look for it. Do not cut at a line count.
-- `STRUCTURE-04` Before you write code, list the units and the one-sentence responsibility of each.
-- `STRUCTURE-05` Put new code in the unit that owns the responsibility. If no unit owns it, create a new unit. Do not append the code to the nearest large file.
-- `STRUCTURE-06` Name a unit by its responsibility (for example, `parser`, `variables`). Do not use `utils`, `helpers`, or `misc`.
-- `STRUCTURE-07` Let dependencies point one way. A shared helper does not import from the code that uses it.
-- `STRUCTURE-08` Give each API path its own module (for example, `users` and `profile` each have one file). Do not put the routes of many paths in one file.
-- `STRUCTURE-09` When a path grows, turn its module into a folder. Put one file in the folder for each sub-path or concern. Keep the public import path of the module the same.
-- `STRUCTURE-10` Merge code that three places repeat. Leave code that two places repeat until a third place needs it.
+- `STRUCTURE-01` Give each module, class, and function one responsibility. A responsibility is one reason to change. State it in one sentence without the word "and". If the sentence needs "and", split the unit.
+- `STRUCTURE-02` Treat size as a symptom, not as a goal. A module of more than about 300 lines, or a function of more than about 60 lines, probably has a second responsibility. Look for it. Do not cut at a line count.
+- `STRUCTURE-03` Before you write code, list the units and the one-sentence responsibility of each.
+- `STRUCTURE-04` Put new code in the unit that owns the responsibility. If no unit owns it, create a new unit. Do not append the code to the nearest large file.
+- `STRUCTURE-05` Name a unit by its responsibility (for example, `parser`, `variables`). Do not use `utils`, `helpers`, or `misc`.
+- `STRUCTURE-06` Let dependencies point one way. A shared helper does not import from the code that uses it.
+- `STRUCTURE-07` Give each API path its own module (for example, `users` and `profile` each have one file). Do not put the routes of many paths in one file.
+- `STRUCTURE-08` When a path grows, turn its module into a folder. Put one file in the folder for each sub-path or concern. Keep the public import path of the module the same.
+- `STRUCTURE-09` Merge code that three places repeat. Leave code that two places repeat until a third place needs it.
 
 ## Pure Functions
 
