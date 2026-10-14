@@ -108,10 +108,10 @@ This section is a draft. Refine it as the work goes on.
 
 ## Pseudocode
 
-- `COMMUNICATION-04` Show the logic of each planned change as pseudocode before you write code.
-- `COMMUNICATION-05` Write pseudocode in the same order as the commits.
-- `COMMUNICATION-06` Use plain keywords (GIVEN, WHEN, THEN, FOR, ASSERT). Name no language.
-- `COMMUNICATION-07` Keep each block short. A block longer than about 15 lines needs a split.
+- `COMMUNICATION-05` Show the logic of each planned change as pseudocode before you write code.
+- `COMMUNICATION-06` Write pseudocode in the same order as the commits.
+- `COMMUNICATION-07` Use plain keywords (GIVEN, WHEN, THEN, FOR, ASSERT). Name no language.
+- `COMMUNICATION-08` Keep each block short. Split a block longer than about 15 lines.
 
 ## Tables and Diagrams
 
