@@ -1,6 +1,6 @@
 # Git Commit Guidelines
 
-When working with code, follow these rules for every commit.
+Follow these rules for every commit.
 
 ## Conventional Commits
 
