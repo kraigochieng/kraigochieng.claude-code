@@ -279,14 +279,14 @@ This section is a draft. Refine it as the work goes on.
 
 ## Python
 
-- `PY-01` Mark optional and boolean parameters keyword-only with `*` in the definition, so a caller cannot pass them by position.
+- `PY-01` Mark optional and boolean parameters keyword-only with `*` in the definition, so that a caller cannot pass them by position.
 - `PY-02` Use absolute imports (`from package.module import name`).
 - `PY-03` Do not use `Any`, `object` as a shortcut, or an untyped `dict` or `list`. Write the element types (`dict[str, int]`).
 - `PY-04` Hint constants with `Final[str]`, class variables with `ClassVar[...]`, and type aliases with `TypeAlias`. Hint a local variable at its first assignment (`checks: list[Check] = []`).
 - `PY-05` Check the types with `mypy --strict` (or an equal strict checker) in CI. Run `ruff check` with the `F`, `I`, and `ANN` rules in CI.
 - `PY-06` Do not pin `python_version` in the checker config. Test on every Python version that CI runs.
 - `PY-07` Use pydantic `BaseModel` classes for structured data. Do not pass plain dicts or dataclasses between functions.
-- `PY-08` Use `polars` for data analysis. Do not use `pandas`. `polars` is faster.
+- `PY-08` Use `polars` for data analysis. Do not use `pandas`.
 - `PY-09` Use `platformdirs` for the config, data, and cache directories.
 - `PY-10` Use `pydantic-settings` (`BaseSettings`) to read environment variables and the `.env` file. Declare each secret with `SecretStr`. Read a secret with `get_secret_value()` only at the point of use.
 - `PY-11` Use `tmp_path` to isolate tests from the real home directory.
