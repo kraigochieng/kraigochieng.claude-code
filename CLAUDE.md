@@ -223,6 +223,9 @@ A plan for a feature, a fix, or a refactor has these sections, in this order:
 - Add the `.env` file to the ignore list of the version control system (for example, `.gitignore`). Commit a `.env.example` file that has the key names and no values.
 - Write files that hold secrets atomically (temporary file, then rename) with owner-only permissions (for example, mode `0600`).
 - Send a request with a secret only to the host the user set. Do not follow redirects.
+- Read environment variables through a settings library. The library declares each setting with a type, validates it at start, and masks each secret on print. Do not read the environment directly in application code.
+- Use the secret type of the settings library for each secret setting. A secret value never appears in a log, a repr, or an error message.
+- Choose the settings library for a language when the project starts. Prefer a library that supports a `.env` file and a secrets directory.
 
 ## User Interface
 
@@ -301,6 +304,7 @@ A plan for a feature, a fix, or a refactor has these sections, in this order:
 - Use pydantic `BaseModel` classes for structured data. Do not pass plain dicts or dataclasses between functions.
 - Use `polars` for data analysis. Do not use `pandas`. `polars` is faster.
 - Use `platformdirs` for the config, data, and cache directories.
+- Use `pydantic-settings` (`BaseSettings`) to read environment variables and the `.env` file. Declare each secret with `SecretStr`. Read a secret with `get_secret_value()` only at the point of use.
 - Use `tmp_path` to isolate tests from the real home directory.
 
 ## TypeScript
