@@ -259,7 +259,7 @@ This section is a draft. Refine it as the work goes on.
 
 - `TESTS-01` Write tests with the code. Run the full test suite before each commit.
 - `TESTS-02` Isolate tests from the real home directory, the real environment, and the network. Use temporary directories, injected parameters, and mock transports.
-- `TESTS-03` Add a test for each error path, not only for the success path.
+- `TESTS-03` Add a test for each error path, not only for the success path. Include a test that raises each custom error type.
 - `TESTS-04` Check that CI passes before you merge.
 
 ## Delivery
