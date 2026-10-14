@@ -55,10 +55,10 @@ Follow a senior-developer workflow. An issue tracks every change. Each change ha
 
 ## Commits and Pull Requests
 
-- `WORKFLOW-08` Commit on the branch following the commit guidelines above. Reference the issue in commit footers where useful (e.g. `Refs #42`).
-- `WORKFLOW-09` When the work is complete, push the branch and open a pull request (`gh pr create`) that links the issue with `Closes #<number>`, summarizes what changed and why, and notes how it was tested.
-- `WORKFLOW-10` Do not merge pull requests or push to the default branch unless explicitly asked.
-- `WORKFLOW-11` Keep the branch up to date with the default branch (rebase or merge, following the repo's convention) before opening the PR.
+- `WORKFLOW-07` Commit on the branch and follow "Git Commit Guidelines". Reference the issue in the commit footer where useful (for example, `Refs #42`).
+- `WORKFLOW-08` When the work is complete, push the branch and open a pull request (`gh pr create`). The pull request links the issue with `Closes #<number>`, summarizes what changed and why, and notes how the change was tested.
+- `WORKFLOW-09` Before you open the pull request, update the branch from the default branch (rebase or merge, as the repository convention says).
+- `WORKFLOW-10` Do not merge a pull request, and do not push to the default branch, unless the user says to do so. One merge approval does not cover the next pull request.
 
 ## Confirm Before Outward-Facing Actions
 
