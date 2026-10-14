@@ -189,14 +189,11 @@ This section is a draft. Refine it as the work goes on.
 
 ## Errors
 
-- `ERRORS-01` Define a custom error type for each failure that the project expects. Name the type for the failure (for example, `UserNotFoundError`).
-- `ERRORS-02` Derive every custom error type from one base error type of the project.
-- `ERRORS-03` Do not raise a generic error type. Do not catch a generic error type, except at the outermost boundary.
-- `ERRORS-04` Catch the narrowest custom error type that the code can handle.
-- `ERRORS-05` Put the context of the failure in typed fields of the error. Write a clear message that has no secret.
-- `ERRORS-06` Convert an error from a library to a custom error type at the boundary. Keep the original error as the cause.
-- `ERRORS-07` Do not swallow an error. Handle it, or let it propagate.
-- `ERRORS-08` Add a test that raises each custom error type.
+- `ERRORS-01` Define a custom error type for each failure that the project expects. Name the type for the failure (for example, `UserNotFoundError`). Derive every custom error type from one base error type of the project.
+- `ERRORS-02` Do not raise a generic error type. Do not catch a generic error type, except at the outermost boundary. Catch the narrowest custom error type that the code can handle.
+- `ERRORS-03` Put the context of the failure in typed fields of the error. Write a clear message that has no secret.
+- `ERRORS-04` Convert an error from a library to a custom error type at the boundary. Keep the original error as the cause.
+- `ERRORS-05` Do not swallow an error. Handle it, or let it propagate.
 
 ## Refactoring
 
