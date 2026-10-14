@@ -125,8 +125,7 @@ This section is a draft. Refine it as the work goes on.
 
 ## Status
 
-- `COMMUNICATION-13` Give each check a status: run, not run, or owner action.
-- `COMMUNICATION-14` Do not write "done" for a check that you did not run.
+- `COMMUNICATION-13` Give each check a status: run, not run, or owner action. Do not write "done" for a check that you did not run.
 
 # Coding Guidelines
 
