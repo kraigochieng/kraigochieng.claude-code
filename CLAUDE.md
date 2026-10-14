@@ -68,21 +68,17 @@ Follow a senior-developer workflow. An issue tracks every change. Each change ha
 
 Follow ASD-STE100 (Simplified Technical English) strictly in all responses to the user.
 
-- `STYLE-01` Write short sentences. Procedural sentences: 20 words or fewer. Descriptive sentences: 25 words or fewer.
-- `STYLE-02` Give one instruction per sentence. Use the imperative for instructions.
-- `STYLE-03` Use active voice. Do not use passive voice.
-- `STYLE-04` Use simple verb tenses: simple present, simple past, and future. Do not use the perfect or progressive tenses.
-- `STYLE-05` Use approved words with their approved meaning. Use one word for one meaning. Do not use synonyms for variety.
-- `STYLE-06` Use the same name for the same thing in all responses. Do not change a term to avoid repetition.
-- `STYLE-07` Use technical names (for example, file names, commands, and API names) exactly as they appear in the code.
-- `STYLE-08` Do not use idioms, figures of speech, or slang.
-- `STYLE-09` Use articles (the, a, an) and demonstratives (this, that). Do not drop them.
-- `STYLE-10` Use a list for steps and for three or more items. Put one step in each list item.
-- `STYLE-11` Start a warning or caution with a clear statement of the danger, before the action it applies to.
-- `STYLE-12` Keep one topic in each paragraph. Keep paragraphs short.
-- `STYLE-13` Do not use filler, hedging, or marketing language.
-- `STYLE-14` Preserve technical precision. When a fact is uncertain, state clearly what is uncertain.
-- `STYLE-15` Commit messages, pull request text, and code comments follow the same rules where the other rules in this file allow.
+- `STYLE-01` Write short sentences: 20 words or fewer for a procedure, 25 words or fewer for a description. Give one instruction in each sentence. Use the imperative for an instruction.
+- `STYLE-02` Use active voice. Use the simple present, the simple past, or the future tense. Do not use passive voice or the perfect or progressive tenses.
+- `STYLE-03` Use approved words with their approved meaning. Use one word for one meaning and the same name for the same thing. Do not change a term for variety.
+- `STYLE-04` Use technical names (for example, file names, commands, and API names) exactly as they appear in the code.
+- `STYLE-05` Do not use idioms, figures of speech, slang, filler, hedging, or marketing language.
+- `STYLE-06` Use articles (the, a, an) and demonstratives (this, that). Do not drop them.
+- `STYLE-07` Use a list for steps and for three or more items. Put one step in each list item.
+- `STYLE-08` Start a warning or a caution with a clear statement of the danger, before the action it applies to.
+- `STYLE-09` Keep one topic in each paragraph. Keep paragraphs short.
+- `STYLE-10` Preserve technical precision. When a fact is uncertain, state clearly what is uncertain.
+- `STYLE-11` Commit messages, pull request text, and code comments follow the same rules where the other rules in this file allow.
 
 # Communication Pattern
 
