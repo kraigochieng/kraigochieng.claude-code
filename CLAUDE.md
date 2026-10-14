@@ -174,9 +174,9 @@ This section is a draft. Refine it as the work goes on.
 
 ## Data Access
 
-- `DATA-01` Put all data access in a repository. The repository owns the queries and the storage calls.
-- `DATA-02` Do not read or write the data store outside a repository.
-- `DATA-03` Give the repository a typed interface. Return the structured types of the project, not raw rows.
+- `DATA-01` Put all data access in a repository. The repository owns the queries and the storage calls. Do not read or write the data store outside a repository.
+- `DATA-02` Give the repository a typed interface. Return the structured types of the project, not raw rows.
+- `DATA-03` Make each database migration reversible. Do not mix a schema change with a data change in one migration.
 
 ## Layers
 
