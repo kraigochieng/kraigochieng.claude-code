@@ -241,25 +241,19 @@ This section is a draft. Refine it as the work goes on.
 ## HTTP APIs
 
 - `API-01` Limit the request rate for each client. Return status 429 with a `Retry-After` header when a client exceeds the limit.
-- `API-02` Put a version in every API, in the URL path or in a header. Do not change a published version in a breaking way.
-- `API-03` Add fields in a version. Do not remove or rename a field in the same version.
-- `API-04` Return one error structure for all errors. Include a code, a message, and a request ID.
-- `API-05` State the HTTP status code in the controller for each success path and each error path. Do not let a framework default choose the status code.
-- `API-06` Paginate every list endpoint. Set a maximum page size.
-- `API-07` Make PUT and DELETE idempotent. Accept an idempotency key for a POST that creates a resource.
-- `API-08` Require authentication on every endpoint by default. Mark each public endpoint explicitly.
-- `API-09` Check the permission of the caller on the server for every request.
-- `API-10` Validate every request body and parameter at the boundary. Reject unknown input.
-- `API-11` Set a timeout on every outgoing call. Set a size limit on every request.
-- `API-12` Log each request with its request ID. Do not log a secret. Expose a health check endpoint.
-- `API-13` Allow only listed origins for cross-origin requests. Do not use a wildcard for an authenticated endpoint.
-- `API-14` Announce the removal of a version with a `Deprecation` header and a date. Keep the old version until that date.
-- `API-15` Generate a machine-readable description of the API from the code (for example, an OpenAPI document). Check it in CI.
-
-### Data and Dependencies
-
-- `API-16` Make each database migration reversible. Do not mix a schema change with a data change in one migration.
-- `API-17` Pin the version of each dependency. Scan the dependencies for known vulnerabilities in CI.
+- `API-02` Put a version in every API, in the URL path or in a header. Do not change a published version in a breaking way. Add fields in a version. Do not remove or rename a field in the same version.
+- `API-03` Return one error structure for all errors. Include a code, a message, and a request ID.
+- `API-04` State the HTTP status code in the controller for each success path and each error path. Do not let a framework default choose the status code.
+- `API-05` Paginate every list endpoint. Set a maximum page size.
+- `API-06` Make PUT and DELETE idempotent. Accept an idempotency key for a POST that creates a resource.
+- `API-07` Require authentication on every endpoint by default. Mark each public endpoint explicitly.
+- `API-08` Check the permission of the caller on the server for every request.
+- `API-09` Validate every request body and parameter at the boundary. Reject unknown input.
+- `API-10` Set a timeout on every outgoing call. Set a size limit on every request.
+- `API-11` Log each request with its request ID. Expose a health check endpoint.
+- `API-12` Allow only listed origins for cross-origin requests. Do not use a wildcard for an authenticated endpoint.
+- `API-13` Announce the removal of a version with a `Deprecation` header and a date. Keep the old version until that date.
+- `API-14` Generate a machine-readable description of the API from the code (for example, an OpenAPI document). Check it in CI.
 
 ## Tests
 
