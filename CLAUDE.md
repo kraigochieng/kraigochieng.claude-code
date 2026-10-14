@@ -39,7 +39,7 @@ Use the [Conventional Commits](https://www.conventionalcommits.org/) format. The
 
 # Repository Workflow
 
-When working in a repository, follow a senior-developer workflow: every change is tracked by an issue and developed on its own branch.
+Follow a senior-developer workflow. An issue tracks every change. Each change has its own branch.
 
 ## Issues
 
