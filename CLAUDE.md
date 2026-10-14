@@ -198,6 +198,17 @@ A plan for a feature, a fix, or a refactor has these sections, in this order:
 - Let dependencies point one way: controller to service, and service to repository. A lower layer does not import from a higher layer.
 - Test a service without a transport. Test a controller with a fake service.
 
+## Errors
+
+- Define a custom error type for each failure that the project expects. Name the type for the failure (for example, `UserNotFoundError`).
+- Derive every custom error type from one base error type of the project.
+- Do not raise a generic error type. Do not catch a generic error type, except at the outermost boundary.
+- Catch the narrowest custom error type that the code can handle.
+- Put the context of the failure in typed fields of the error. Write a clear message that has no secret.
+- Convert an error from a library to a custom error type at the boundary. Keep the original error as the cause.
+- Do not swallow an error. Handle it, or let it propagate.
+- Add a test that raises each custom error type.
+
 ## Refactoring
 
 - A refactor changes the structure and never the behavior.
