@@ -62,7 +62,7 @@ Follow a senior-developer workflow. An issue tracks every change. Each change ha
 
 ## Confirm Before Outward-Facing Actions
 
-Creating issues, pushing branches, and opening pull requests publish content to a remote. Unless the user has said to proceed without asking, confirm before doing so.
+- `WORKFLOW-11` Creating an issue, pushing a branch, and opening a pull request publish content to a remote. Confirm before you do so, unless the user said to proceed without asking.
 
 # Writing Style
 
