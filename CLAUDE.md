@@ -167,6 +167,8 @@ A plan for a feature, a fix, or a refactor has these sections, in this order:
 - Put new code in the unit that owns the responsibility. If no unit owns it, create a new unit. Do not append the code to the nearest large file.
 - Name a unit by its responsibility (for example, `parser`, `variables`). Do not use `utils`, `helpers`, or `misc`.
 - Let dependencies point one way. A shared helper does not import from the code that uses it.
+- Give each API path its own module (for example, `users` and `profile` each have one file). Do not put the routes of many paths in one file.
+- When a path grows, turn its module into a folder. Put one file in the folder for each sub-path or concern. Keep the public import path of the module the same.
 - Merge code that three places repeat. Leave code that two places repeat until a third place needs it.
 
 ## Pure Functions
