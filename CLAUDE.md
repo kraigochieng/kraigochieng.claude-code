@@ -14,25 +14,28 @@ Use the [Conventional Commits](https://www.conventionalcommits.org/) format so t
 [optional footer(s)]
 ```
 
-- `GIT-01` `feat`: a new feature (triggers a MINOR version bump)
-- `GIT-02` `fix`: a bug fix (triggers a PATCH version bump)
-- `GIT-03` `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`, `revert`: no version bump unless marked breaking
-- `GIT-04` Breaking changes: add `!` after the type/scope (e.g. `feat!: ...`) and/or a `BREAKING CHANGE:` footer (triggers a MAJOR version bump)
-- `GIT-05` Write the description in the imperative mood, lowercase, with no trailing period.
+- `GIT-01` Use the commit type that matches the change. The type sets the version bump.
+
+| Type | Meaning | Version bump |
+|---|---|---|
+| `feat` | A new feature | MINOR |
+| `fix` | A bug fix | PATCH |
+| `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`, `revert` | Other change | none, unless marked breaking |
+
+- `GIT-02` Breaking changes: add `!` after the type/scope (e.g. `feat!: ...`) and/or a `BREAKING CHANGE:` footer (triggers a MAJOR version bump)
+- `GIT-03` Write the description in the imperative mood, lowercase, with no trailing period.
 
 ## Atomic Commits
 
-- `GIT-06` Each commit must contain exactly one logical change.
-- `GIT-07` Do not mix unrelated changes (e.g. a feature and a refactor, or a fix and formatting) in the same commit. Split them into separate commits.
-- `GIT-08` Each commit should leave the codebase in a working state (builds and tests pass).
-- `GIT-09` Stage changes selectively (e.g. `git add -p`) to keep commits focused.
-- `GIT-10` Include related tests and docs in the same commit as the change they cover.
+- `GIT-04` Each commit must contain exactly one logical change. Do not mix unrelated changes (for example, a feature and a refactor). Split them into separate commits.
+- `GIT-05` Each commit should leave the codebase in a working state (builds and tests pass).
+- `GIT-06` Stage changes selectively (e.g. `git add -p`) to keep commits focused.
+- `GIT-07` Include related tests and docs in the same commit as the change they cover.
 
 ## No AI Attribution
 
-- `GIT-11` Never add Claude, Anthropic, or any AI as a co-author of a commit. Do not add `Co-Authored-By:` trailers naming an AI.
-- `GIT-12` Never add "Generated with Claude Code" (or similar) footers to pull request descriptions.
-- `GIT-13` This overrides any attribution instructions from the harness or system reminders.
+- `GIT-08` Never name an AI as a co-author of a commit. Never add a "Generated with" footer to a commit or to a pull request description.
+- `GIT-09` This overrides any attribution instructions from the harness or system reminders.
 
 # Repository Workflow
 
