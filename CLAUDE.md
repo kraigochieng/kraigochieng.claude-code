@@ -283,6 +283,7 @@ This section is a draft. Refine it as the work goes on.
 - `REPORTING-01` State what you tested and what you did not test.
 - `REPORTING-02` State a known defect or limit, even when it is small.
 - `REPORTING-03` When the user rejects a plan, change the plan file and ask again. Do not argue.
+- `REPORTING-04` State each limit that affects the result. This covers reports and every code suggestion, library choice, or design recommendation. A limit is a tool you cannot use, a step you skip, an input you cannot verify, a version or behavior you did not test, or a doubt about your answer. State it with the suggestion, before the user relies on it.
 
 # Language-Specific Rules
 
