@@ -278,6 +278,12 @@ This section is a draft. Refine it as the work goes on.
 - `DELIVERY-03` After a network error on a write (merge, push), check the real state before you retry.
 - `DELIVERY-04` Pin the version of each dependency. Scan the dependencies for known vulnerabilities in CI.
 
+## Diligence
+
+- `DILIGENCE-01` Take the time that the task needs. Do not rush to give an answer.
+- `DILIGENCE-02` Before you write or suggest code, read the code that the change touches. Check each fact that the answer depends on.
+- `DILIGENCE-03` Before you give a result, check it against the request. Run the tests that cover the change.
+
 ## Reporting
 
 - `REPORTING-01` State what you tested and what you did not test.
