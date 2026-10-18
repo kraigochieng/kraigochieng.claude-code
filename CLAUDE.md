@@ -314,3 +314,9 @@ This section is a draft. Refine it as the work goes on.
 
 - `TS-01` Take one options object and destructure it (`createUser({ name, role })`). Define its type with an `interface` or a `type`.
 - `TS-02` Set `strict: true`. Do not use `any`.
+
+## SQL
+
+- `SQL-01` Do not give a table an alias. Write the full table name in every reference (for example, `stories.story_id`, not `s.story_id`).
+- `SQL-02` When one query reads the same table twice, give each reference an alias. The alias holds the full table name and the role of the reference (for example, `stories_as_duplicate_target`). Do not use a short alias.
+- `SQL-03` Name every variable, parameter, and column in full words (rule `CONVENTIONS-14`).
