@@ -170,6 +170,7 @@ This section is a draft. Refine it as the work goes on.
 - `STRUCTURE-07` Give each API path its own module (for example, `users` and `profile` each have one file). Do not put the routes of many paths in one file.
 - `STRUCTURE-08` When a path grows, turn its module into a folder. Put one file in the folder for each sub-path or concern. Keep the public import path of the module the same.
 - `STRUCTURE-09` Merge code that three places repeat. Leave code that two places repeat until a third place needs it.
+- `STRUCTURE-10` Do not nest loops. Do not nest `if` statements. Use an early return or a guard clause, a combined condition, or a separate function with its own name. Prefer an operation over a whole collection (for example, `map`, `filter`, or a set-based query) to a loop.
 
 ## Pure Functions
 
