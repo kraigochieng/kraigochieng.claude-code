@@ -158,6 +158,7 @@ This section is a draft. Refine it as the work goes on.
 - `CONVENTIONS-11` Use declared model types for structured data. Do not pass plain maps or unvalidated records between functions. Keep a plain map only for a free-form name-to-value map.
 - `CONVENTIONS-12` Validate data at the boundary (files, user input). Turn a validation error into a clear error message.
 - `CONVENTIONS-13` Keep unknown keys when the code rewrites a file that other tools own.
+- `CONVENTIONS-14` Write every name in full words. Do not use a short form of a word (for example, `index`, not `idx`; `message`, not `msg`). Do not use a single-letter name, not even for a loop target, a lambda parameter, or a query alias.
 
 ## Structure
 
