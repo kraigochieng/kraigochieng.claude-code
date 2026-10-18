@@ -225,6 +225,7 @@ This section is a draft. Refine it as the work goes on.
 - `ASSUMPTIONS-05` When a project starts, list each library or tool choice that this file does not name for the language of the project. Ask the user to research and decide each choice. Do not choose for the user.
 - `ASSUMPTIONS-06` Do not start research on candidates unless the user asks. When the user asks, help with the research and leave the conclusion to the user.
 - `ASSUMPTIONS-07` Record each decision of the user in a decision record.
+- `ASSUMPTIONS-08` Before you add or upgrade a dependency, ask the user to approve it. Name the package, the version, the reason, and whether it is runtime or dev. Install nothing before the user says yes.
 
 ## Security
 
