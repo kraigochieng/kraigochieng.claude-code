@@ -101,6 +101,14 @@ This section is a draft. Refine it as the work goes on.
 
 # Planning Pattern
 
+Sources of this pattern:
+
+- Decision record: the Architecture Decision Record format of Nygard, "Documenting Architecture Decisions" (Cognitect, 2011).
+- Design document: "Design Docs at Google" (https://www.industrialempathy.com/posts/design-docs-at-google/). Only sections 2 to 5 of `DESIGN-02` follow it.
+- Contract: Design by Contract by Meyer.
+
+The size tiers, the example tables, and the delivery sections of the design document are additions of this project. The State Machines part names no source.
+
 ## Design Document
 
 - `DESIGN-01` Choose the tier of the design document from the size of the work:
@@ -108,34 +116,32 @@ This section is a draft. Refine it as the work goes on.
 | Tier | Size of the work | Content |
 |---|---|---|
 | Small | One step | No document. Answer in a few sentences. |
-| Medium | One pull request with two or more commits | Sections 1, 2, 3, 8, 11, and 12 of `DESIGN-02`. |
+| Medium | One pull request with two or more commits | Sections 1, 2, 3, 6, 9, and 10 of `DESIGN-02`. |
 | Large | More than one pull request, or a change that is hard to reverse | All sections of `DESIGN-02`. |
 
-- `DESIGN-02` A large plan for a feature, a fix, or a refactor has these sections, in this order:
+- `DESIGN-02` A large plan for a feature, a fix, or a refactor has these sections, in this order. Sections 2 to 5 follow the design doc structure of Google. Sections 1 and 6 to 10 are additions of this project:
 
 1. Header table: issue, status, dependencies, decisions from the owner.
-2. Context: the problem and what prompted the work.
+2. Context and scope: the problem, what prompted the work, and what the work covers.
 3. Goals and non-goals, in two columns.
-4. Current state and proposed state, each with a diagram.
-5. Contracts and examples: the signature and an example table for each unit (`CONTRACT-01` to `CONTRACT-04`).
-6. Design decisions: a table with decision, choice, and reason.
-7. Alternatives considered: a table with option and reason for rejection.
-8. Work breakdown: a table with pull request, commit, commit type, and check.
-9. Risks: a table with risk, effect, and mitigation.
-10. Rollout: numbered steps. Mark the steps that only the owner can do.
-11. Verification: a table with check, command, and status.
-12. Open questions.
+4. Design: the current state and the proposed state, each with a diagram; the contracts and examples (`CONTRACT-01` to `CONTRACT-04`); and the design decisions as a table with decision, choice, and reason.
+5. Alternatives considered: a table with option and reason for rejection.
+6. Work breakdown: a table with pull request, commit, commit type, and check.
+7. Risks: a table with risk, effect, and mitigation.
+8. Rollout: numbered steps. Mark the steps that only the owner can do.
+9. Verification: a table with check, command, and status.
+10. Open questions.
 
 ## Contracts and Examples
 
-- `CONTRACT-01` Before you write code, state the contract of each planned unit: the one-sentence responsibility (`STRUCTURE-03`), the name, the type of each parameter, and the return type.
-- `CONTRACT-02` Show the behavior of each unit in an example table: the input on the left and the expected output on the right. Include each error path.
+- `CONTRACT-01` Before you write code, state the contract of each planned unit, in the terms of Design by Contract by Meyer: the one-sentence responsibility (`STRUCTURE-03`), the name, the type of each parameter, the return type, the preconditions that the caller must meet, the postconditions that the unit guarantees, and the invariants that the unit keeps true.
+- `CONTRACT-02` Show the behavior of each unit in an example table: the input on the left and the expected output on the right. Include one row for each precondition that a caller can break.
 - `CONTRACT-03` Give each example row one test. Write the rows in the same order as the commits.
 - `CONTRACT-04` Keep each table to about 10 rows. Split a longer table by case group.
 
 ## Decision Record
 
-- `DECISION-01` Write one decision record for each decision that is hard to reverse and for each decision of the user (`ASSUMPTIONS-07`). A decision record has three parts: context, decision, and consequences.
+- `DECISION-01` Write one decision record for each decision that is hard to reverse and for each decision of the user (`ASSUMPTIONS-07`). Use the Architecture Decision Record format of Nygard. A record has five parts: title, status, context, decision, and consequences. The status is proposed, accepted, deprecated, or superseded. A superseded record names the record that replaces it.
 
 # Modeling Pattern
 
