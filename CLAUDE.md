@@ -135,7 +135,7 @@ This section is a draft. Refine it as the work goes on.
 
 ## Decision Record
 
-- `DECISION-01` Write one decision record for each decision that is hard to reverse. A decision record has three parts: context, decision, and consequences.
+- `DECISION-01` Write one decision record for each decision that is hard to reverse and for each decision of the user (`ASSUMPTIONS-07`). A decision record has three parts: context, decision, and consequences.
 
 # Modeling Pattern
 
@@ -236,7 +236,7 @@ This section is a draft. Refine it as the work goes on.
 - `ASSUMPTIONS-04` Do not assume how another tool works. Test it with a real run, for example with a fake local server, before you document it.
 - `ASSUMPTIONS-05` When a project starts, list each library or tool choice that this file does not name for the language of the project. Ask the user to research and decide each choice. Do not choose for the user.
 - `ASSUMPTIONS-06` Do not start research on candidates unless the user asks. When the user asks, help with the research and leave the conclusion to the user.
-- `ASSUMPTIONS-07` Record each decision of the user in a decision record.
+- `ASSUMPTIONS-07` Record each decision of the user in a decision record (`DECISION-01`).
 - `ASSUMPTIONS-08` Before you add or upgrade a dependency, ask the user to approve it. Name the package, the version, the reason, and whether it is runtime or dev. Install nothing before the user says yes.
 
 ## Security
