@@ -84,15 +84,27 @@ Follow ASD-STE100 (Simplified Technical English) strictly in all responses to th
 
 This section is a draft. Refine it as the work goes on.
 
-## Structure
+## Answers
 
 - `COMMUNICATION-01` Put the answer or the recommendation first. Put the reasons after it.
 - `COMMUNICATION-02` Use a fixed structure for a plan, a proposal, or a technical explanation. Do not write one as free prose.
 - `COMMUNICATION-03` Answer a small question in a few sentences. Use the fixed structure only for work that has more than one step.
 
+## Tables and Diagrams
+
+- `COMMUNICATION-04` Use a table for a list in which each item has more than one attribute.
+- `COMMUNICATION-05` Use a diagram for a system that has more than two parts.
+- `COMMUNICATION-06` Do not put a list of steps in a table. Use a numbered list.
+
+## Status
+
+- `COMMUNICATION-07` Give each check a status: run, not run, or owner action. Do not write "done" for a check that you did not run.
+
+# Planning Pattern
+
 ## Design Document
 
-- `COMMUNICATION-04` A plan for a feature, a fix, or a refactor has these sections, in this order:
+- `DESIGN-01` A plan for a feature, a fix, or a refactor has these sections, in this order:
 
 1. Header table: issue, status, dependencies, decisions from the owner.
 2. Context: the problem and what prompted the work.
@@ -108,33 +120,25 @@ This section is a draft. Refine it as the work goes on.
 
 ## Pseudocode
 
-- `COMMUNICATION-05` Show the logic of each planned change as pseudocode before you write code.
-- `COMMUNICATION-06` Write pseudocode in the same order as the commits.
-- `COMMUNICATION-07` Use plain keywords (GIVEN, WHEN, THEN, FOR, ASSERT). Name no language.
-- `COMMUNICATION-08` Keep each block short. Split a block longer than about 15 lines.
-
-## Tables and Diagrams
-
-- `COMMUNICATION-09` Use a table for a list in which each item has more than one attribute.
-- `COMMUNICATION-10` Use a diagram for a system that has more than two parts.
-- `COMMUNICATION-11` Do not put a list of steps in a table. Use a numbered list.
+- `PSEUDO-01` Show the logic of each planned change as pseudocode before you write code.
+- `PSEUDO-02` Write pseudocode in the same order as the commits.
+- `PSEUDO-03` Use plain keywords (GIVEN, WHEN, THEN, FOR, ASSERT). Name no language.
+- `PSEUDO-04` Keep each block short. Split a block longer than about 15 lines.
 
 ## Decision Record
 
-- `COMMUNICATION-12` Write one decision record for each decision that is hard to reverse. A decision record has three parts: context, decision, and consequences.
+- `DECISION-01` Write one decision record for each decision that is hard to reverse. A decision record has three parts: context, decision, and consequences.
 
-## Status
-
-- `COMMUNICATION-13` Give each check a status: run, not run, or owner action. Do not write "done" for a check that you did not run.
+# Modeling Pattern
 
 ## State Machines
 
-- `COMMUNICATION-14` Explain a process that has states and events (for example an invite, an order, or a job) as a state machine. Do not explain it as a story.
-- `COMMUNICATION-15` Name every state and every event. Mark the start state and the end states.
-- `COMMUNICATION-16` Show the transitions in a table with the columns from-state, event, to-state, and action. Add a diagram when the process has more than two states.
-- `COMMUNICATION-17` Show each decision in a table: the conditions on the left and the result on the right. Include the refusal cases, with the reason the user sees.
-- `COMMUNICATION-18` Check three things before you finish: each state has a way out or is an end state, each event is handled in each state, and an event that changes nothing is shown as refused or ignored.
-- `COMMUNICATION-19` When you design a feature that has states, write the states and transitions first. Then write the decision as one pure function over the states, and test each row of the decision table.
+- `STATE-01` Explain a process that has states and events (for example an invite, an order, or a job) as a state machine. Do not explain it as a story.
+- `STATE-02` Name every state and every event. Mark the start state and the end states.
+- `STATE-03` Show the transitions in a table with the columns from-state, event, to-state, and action. Add a diagram when the process has more than two states.
+- `STATE-04` Show each decision in a table: the conditions on the left and the result on the right. Include the refusal cases, with the reason the user sees.
+- `STATE-05` Check three things before you finish: each state has a way out or is an end state, each event is handled in each state, and an event that changes nothing is shown as refused or ignored.
+- `STATE-06` When you design a feature that has states, write the states and transitions first. Then write the decision as one pure function over the states, and test each row of the decision table.
 
 # Coding Guidelines
 
