@@ -262,6 +262,7 @@ This section is a draft. Refine it as the work goes on.
 - `UI-05` Give every free-text input a clear option.
 - `UI-06` Reset every filter, sort, page, and search value when the user changes the global parent context (for example, from one project to another). Remove their keys from the URL. Test this behavior.
 - `UI-07` When data is read-only, show a lock notice and disable every input that would change the data.
+- `UI-08` When a form saves automatically (`UI-03`), show the save status: saving, saved, or failed. Show the failure in text, not only in color.
 
 ### Pure Components
 
