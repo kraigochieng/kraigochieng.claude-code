@@ -110,20 +110,21 @@ This section is a draft. Refine it as the work goes on.
 2. Context: the problem and what prompted the work.
 3. Goals and non-goals, in two columns.
 4. Current state and proposed state, each with a diagram.
-5. Design decisions: a table with decision, choice, and reason.
-6. Alternatives considered: a table with option and reason for rejection.
-7. Work breakdown: a table with pull request, commit, commit type, and check.
-8. Risks: a table with risk, effect, and mitigation.
-9. Rollout: numbered steps. Mark the steps that only the owner can do.
-10. Verification: a table with check, command, and status.
-11. Open questions.
+5. Contracts and examples: the signature and an example table for each unit (`CONTRACT-01` to `CONTRACT-04`).
+6. Design decisions: a table with decision, choice, and reason.
+7. Alternatives considered: a table with option and reason for rejection.
+8. Work breakdown: a table with pull request, commit, commit type, and check.
+9. Risks: a table with risk, effect, and mitigation.
+10. Rollout: numbered steps. Mark the steps that only the owner can do.
+11. Verification: a table with check, command, and status.
+12. Open questions.
 
-## Pseudocode
+## Contracts and Examples
 
-- `PSEUDO-01` Show the logic of each planned change as pseudocode before you write code.
-- `PSEUDO-02` Write pseudocode in the same order as the commits.
-- `PSEUDO-03` Use plain keywords (GIVEN, WHEN, THEN, FOR, ASSERT). Name no language.
-- `PSEUDO-04` Keep each block short. Split a block longer than about 15 lines.
+- `CONTRACT-01` Before you write code, state the contract of each planned unit: the one-sentence responsibility (`STRUCTURE-03`), the name, the type of each parameter, and the return type.
+- `CONTRACT-02` Show the behavior of each unit in an example table: the input on the left and the expected output on the right. Include each error path.
+- `CONTRACT-03` Give each example row one test. Write the rows in the same order as the commits.
+- `CONTRACT-04` Keep each table to about 10 rows. Split a longer table by case group.
 
 ## Decision Record
 
