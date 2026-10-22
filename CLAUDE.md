@@ -84,57 +84,68 @@ Follow ASD-STE100 (Simplified Technical English) strictly in all responses to th
 
 This section is a draft. Refine it as the work goes on.
 
-## Structure
+## Answers
 
 - `COMMUNICATION-01` Put the answer or the recommendation first. Put the reasons after it.
-- `COMMUNICATION-02` Use a fixed structure for a plan, a proposal, or a technical explanation. Do not write one as free prose.
-- `COMMUNICATION-03` Answer a small question in a few sentences. Use the fixed structure only for work that has more than one step.
+- `COMMUNICATION-02` Answer a small question, or describe work of one step, in a few sentences. Use a design document for all other work (`DESIGN-01`).
+
+## Tables and Diagrams
+
+- `COMMUNICATION-03` Use a table for a list in which each item has more than one attribute.
+- `COMMUNICATION-04` Use a diagram for a system that has more than two parts.
+- `COMMUNICATION-05` Do not put a list of steps in a table. Use a numbered list.
+
+## Status
+
+- `COMMUNICATION-06` Give each check a status: run and passed, run and failed, not run, or owner action. Do not write "done" for a check that you did not run.
+
+# Planning Pattern
 
 ## Design Document
 
-- `COMMUNICATION-04` A plan for a feature, a fix, or a refactor has these sections, in this order:
+- `DESIGN-01` Choose the tier of the design document from the size of the work:
+
+| Tier | Size of the work | Content |
+|---|---|---|
+| Small | One step | No document. Answer in a few sentences. |
+| Medium | One pull request with two or more commits | Sections 1, 2, 3, 8, 11, and 12 of `DESIGN-02`. |
+| Large | More than one pull request, or a change that is hard to reverse | All sections of `DESIGN-02`. |
+
+- `DESIGN-02` A large plan for a feature, a fix, or a refactor has these sections, in this order:
 
 1. Header table: issue, status, dependencies, decisions from the owner.
 2. Context: the problem and what prompted the work.
 3. Goals and non-goals, in two columns.
 4. Current state and proposed state, each with a diagram.
-5. Design decisions: a table with decision, choice, and reason.
-6. Alternatives considered: a table with option and reason for rejection.
-7. Work breakdown: a table with pull request, commit, commit type, and check.
-8. Risks: a table with risk, effect, and mitigation.
-9. Rollout: numbered steps. Mark the steps that only the owner can do.
-10. Verification: a table with check, command, and status.
-11. Open questions.
+5. Contracts and examples: the signature and an example table for each unit (`CONTRACT-01` to `CONTRACT-04`).
+6. Design decisions: a table with decision, choice, and reason.
+7. Alternatives considered: a table with option and reason for rejection.
+8. Work breakdown: a table with pull request, commit, commit type, and check.
+9. Risks: a table with risk, effect, and mitigation.
+10. Rollout: numbered steps. Mark the steps that only the owner can do.
+11. Verification: a table with check, command, and status.
+12. Open questions.
 
-## Pseudocode
+## Contracts and Examples
 
-- `COMMUNICATION-05` Show the logic of each planned change as pseudocode before you write code.
-- `COMMUNICATION-06` Write pseudocode in the same order as the commits.
-- `COMMUNICATION-07` Use plain keywords (GIVEN, WHEN, THEN, FOR, ASSERT). Name no language.
-- `COMMUNICATION-08` Keep each block short. Split a block longer than about 15 lines.
-
-## Tables and Diagrams
-
-- `COMMUNICATION-09` Use a table for a list in which each item has more than one attribute.
-- `COMMUNICATION-10` Use a diagram for a system that has more than two parts.
-- `COMMUNICATION-11` Do not put a list of steps in a table. Use a numbered list.
+- `CONTRACT-01` Before you write code, state the contract of each planned unit: the one-sentence responsibility (`STRUCTURE-03`), the name, the type of each parameter, and the return type.
+- `CONTRACT-02` Show the behavior of each unit in an example table: the input on the left and the expected output on the right. Include each error path.
+- `CONTRACT-03` Give each example row one test. Write the rows in the same order as the commits.
+- `CONTRACT-04` Keep each table to about 10 rows. Split a longer table by case group.
 
 ## Decision Record
 
-- `COMMUNICATION-12` Write one decision record for each decision that is hard to reverse. A decision record has three parts: context, decision, and consequences.
+- `DECISION-01` Write one decision record for each decision that is hard to reverse and for each decision of the user (`ASSUMPTIONS-07`). A decision record has three parts: context, decision, and consequences.
 
-## Status
-
-- `COMMUNICATION-13` Give each check a status: run, not run, or owner action. Do not write "done" for a check that you did not run.
+# Modeling Pattern
 
 ## State Machines
 
-- `COMMUNICATION-14` Explain a process that has states and events (for example an invite, an order, or a job) as a state machine. Do not explain it as a story.
-- `COMMUNICATION-15` Name every state and every event. Mark the start state and the end states.
-- `COMMUNICATION-16` Show the transitions in a table with the columns from-state, event, to-state, and action. Add a diagram when the process has more than two states.
-- `COMMUNICATION-17` Show each decision in a table: the conditions on the left and the result on the right. Include the refusal cases, with the reason the user sees.
-- `COMMUNICATION-18` Check three things before you finish: each state has a way out or is an end state, each event is handled in each state, and an event that changes nothing is shown as refused or ignored.
-- `COMMUNICATION-19` When you design a feature that has states, write the states and transitions first. Then write the decision as one pure function over the states, and test each row of the decision table.
+- `STATE-01` Explain a process that has states and events (for example an invite, an order, or a job) as a state machine. Do not explain it as a story.
+- `STATE-02` Name every state and every event. Mark the start state and the end states.
+- `STATE-03` Show the transitions in a table with the columns from-state, event, to-state, and action. Add a diagram when the process has more than two states.
+- `STATE-04` Show each decision in a table: the conditions on the left and the result on the right. Include the refusal cases, with the reason the user sees.
+- `STATE-05` Check three things before you finish: each state has a way out or is an end state, each event is handled in each state, and an event that changes nothing is shown as refused or ignored.
 
 # Coding Guidelines
 
@@ -172,6 +183,7 @@ This section is a draft. Refine it as the work goes on.
 - `STRUCTURE-08` When a path grows, turn its module into a folder. Put one file in the folder for each sub-path or concern. Keep the public import path of the module the same.
 - `STRUCTURE-09` Merge code that three places repeat. Leave code that two places repeat until a third place needs it.
 - `STRUCTURE-10` Do not nest loops. Do not nest `if` statements. Use an early return or a guard clause, a combined condition, or a separate function with its own name. Prefer an operation over a whole collection (for example, `map`, `filter`, or a set-based query) to a loop.
+- `STRUCTURE-11` When you design a feature that has states, write the states and transitions first (`STATE-02`, `STATE-03`). Then write the decision as one pure function over the states, and test each row of the decision table (`STATE-04`).
 
 ## Pure Functions
 
@@ -224,7 +236,7 @@ This section is a draft. Refine it as the work goes on.
 - `ASSUMPTIONS-04` Do not assume how another tool works. Test it with a real run, for example with a fake local server, before you document it.
 - `ASSUMPTIONS-05` When a project starts, list each library or tool choice that this file does not name for the language of the project. Ask the user to research and decide each choice. Do not choose for the user.
 - `ASSUMPTIONS-06` Do not start research on candidates unless the user asks. When the user asks, help with the research and leave the conclusion to the user.
-- `ASSUMPTIONS-07` Record each decision of the user in a decision record.
+- `ASSUMPTIONS-07` Record each decision of the user in a decision record (`DECISION-01`).
 - `ASSUMPTIONS-08` Before you add or upgrade a dependency, ask the user to approve it. Name the package, the version, the reason, and whether it is runtime or dev. Install nothing before the user says yes.
 
 ## Security
