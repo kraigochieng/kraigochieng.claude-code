@@ -135,7 +135,7 @@ This section is a draft. Refine it as the work goes on.
 
 ## Decision Record
 
-- `DECISION-01` Write one decision record for each decision that is hard to reverse and for each decision of the user (`ASSUMPTIONS-07`). A decision record has three parts: context, decision, and consequences.
+- `DECISION-01` Write one decision record for each decision that is hard to reverse and for each decision of the user (`ASSUMPTIONS-07`). Use the Architecture Decision Record format of Nygard. A record has five parts: title, status, context, decision, and consequences. The status is proposed, accepted, deprecated, or superseded. A superseded record names the record that replaces it.
 
 # Modeling Pattern
 
