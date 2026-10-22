@@ -251,10 +251,18 @@ This section is a draft. Refine it as the work goes on.
 ## User Interface
 
 - `UI-01` Ask for confirmation before every destructive action. Name the item in the confirmation.
-- `UI-02` Give every table pagination, sorting, filtering, and search. Keep the values of these four in the URL query parameters.
+- `UI-02` Give every table pagination, sorting, filtering, and search. Keep the values of these four in the URL query parameters, and follow these steps:
+  - Read the values from the URL on the first load. A link to a filtered view shows that view.
+  - Treat the URL as user input. Replace an unknown, repeated, or invalid value with the default value. Do not show an error.
+  - Remove a key from the URL when its value equals the default value. Keep all other keys.
+  - Replace the current history entry when the user changes a filter, a sort, or a search. Add an entry only when the user changes a page or a view.
+  - Do not reload the page for a filter change.
 - `UI-03` Save the input of a form as the user types. Restore the input when the user returns to the page. Clear the saved input when the form submits. Do not save a secret field.
 - `UI-04` Give every number input with a limited range a slider.
 - `UI-05` Give every free-text input a clear option.
+- `UI-06` Reset every filter, sort, page, and search value when the user changes the global parent context (for example, from one project to another). Remove their keys from the URL. Test this behavior.
+- `UI-07` When data is read-only, show a lock notice and disable every input that would change the data.
+- `UI-08` When a form saves automatically (`UI-03`), show the save status: saving, saved, or failed. Show the failure in text, not only in color.
 
 ### Pure Components
 
