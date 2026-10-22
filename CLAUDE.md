@@ -87,24 +87,31 @@ This section is a draft. Refine it as the work goes on.
 ## Answers
 
 - `COMMUNICATION-01` Put the answer or the recommendation first. Put the reasons after it.
-- `COMMUNICATION-02` Use a fixed structure for a plan, a proposal, or a technical explanation. Do not write one as free prose.
-- `COMMUNICATION-03` Answer a small question in a few sentences. Use the fixed structure only for work that has more than one step.
+- `COMMUNICATION-02` Answer a small question, or describe work of one step, in a few sentences. Use a design document for all other work (`DESIGN-01`).
 
 ## Tables and Diagrams
 
-- `COMMUNICATION-04` Use a table for a list in which each item has more than one attribute.
-- `COMMUNICATION-05` Use a diagram for a system that has more than two parts.
-- `COMMUNICATION-06` Do not put a list of steps in a table. Use a numbered list.
+- `COMMUNICATION-03` Use a table for a list in which each item has more than one attribute.
+- `COMMUNICATION-04` Use a diagram for a system that has more than two parts.
+- `COMMUNICATION-05` Do not put a list of steps in a table. Use a numbered list.
 
 ## Status
 
-- `COMMUNICATION-07` Give each check a status: run, not run, or owner action. Do not write "done" for a check that you did not run.
+- `COMMUNICATION-06` Give each check a status: run, not run, or owner action. Do not write "done" for a check that you did not run.
 
 # Planning Pattern
 
 ## Design Document
 
-- `DESIGN-01` A plan for a feature, a fix, or a refactor has these sections, in this order:
+- `DESIGN-01` Choose the tier of the design document from the size of the work:
+
+| Tier | Size of the work | Content |
+|---|---|---|
+| Small | One step | No document. Answer in a few sentences. |
+| Medium | One pull request with two or more commits | Sections 1, 2, 3, 8, 11, and 12 of `DESIGN-02`. |
+| Large | More than one pull request, or a change that is hard to reverse | All sections of `DESIGN-02`. |
+
+- `DESIGN-02` A large plan for a feature, a fix, or a refactor has these sections, in this order:
 
 1. Header table: issue, status, dependencies, decisions from the owner.
 2. Context: the problem and what prompted the work.
