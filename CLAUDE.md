@@ -101,6 +101,14 @@ This section is a draft. Refine it as the work goes on.
 
 # Planning Pattern
 
+Sources of this pattern:
+
+- Decision record: the Architecture Decision Record format of Nygard, "Documenting Architecture Decisions" (Cognitect, 2011).
+- Design document: "Design Docs at Google" (https://www.industrialempathy.com/posts/design-docs-at-google/). Only sections 2 to 5 of `DESIGN-02` follow it.
+- Contract: Design by Contract by Meyer.
+
+The size tiers, the example tables, and the delivery sections of the design document are additions of this project. The State Machines part names no source.
+
 ## Design Document
 
 - `DESIGN-01` Choose the tier of the design document from the size of the work:
