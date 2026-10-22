@@ -126,8 +126,8 @@ This section is a draft. Refine it as the work goes on.
 
 ## Contracts and Examples
 
-- `CONTRACT-01` Before you write code, state the contract of each planned unit: the one-sentence responsibility (`STRUCTURE-03`), the name, the type of each parameter, and the return type.
-- `CONTRACT-02` Show the behavior of each unit in an example table: the input on the left and the expected output on the right. Include each error path.
+- `CONTRACT-01` Before you write code, state the contract of each planned unit, in the terms of Design by Contract by Meyer: the one-sentence responsibility (`STRUCTURE-03`), the name, the type of each parameter, the return type, the preconditions that the caller must meet, the postconditions that the unit guarantees, and the invariants that the unit keeps true.
+- `CONTRACT-02` Show the behavior of each unit in an example table: the input on the left and the expected output on the right. Include one row for each precondition that a caller can break.
 - `CONTRACT-03` Give each example row one test. Write the rows in the same order as the commits.
 - `CONTRACT-04` Keep each table to about 10 rows. Split a longer table by case group.
 
