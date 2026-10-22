@@ -97,7 +97,7 @@ This section is a draft. Refine it as the work goes on.
 
 ## Status
 
-- `COMMUNICATION-06` Give each check a status: run, not run, or owner action. Do not write "done" for a check that you did not run.
+- `COMMUNICATION-06` Give each check a status: run and passed, run and failed, not run, or owner action. Do not write "done" for a check that you did not run.
 
 # Planning Pattern
 
