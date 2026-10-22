@@ -146,7 +146,6 @@ This section is a draft. Refine it as the work goes on.
 - `STATE-03` Show the transitions in a table with the columns from-state, event, to-state, and action. Add a diagram when the process has more than two states.
 - `STATE-04` Show each decision in a table: the conditions on the left and the result on the right. Include the refusal cases, with the reason the user sees.
 - `STATE-05` Check three things before you finish: each state has a way out or is an end state, each event is handled in each state, and an event that changes nothing is shown as refused or ignored.
-- `STATE-06` When you design a feature that has states, write the states and transitions first. Then write the decision as one pure function over the states, and test each row of the decision table.
 
 # Coding Guidelines
 
@@ -184,6 +183,7 @@ This section is a draft. Refine it as the work goes on.
 - `STRUCTURE-08` When a path grows, turn its module into a folder. Put one file in the folder for each sub-path or concern. Keep the public import path of the module the same.
 - `STRUCTURE-09` Merge code that three places repeat. Leave code that two places repeat until a third place needs it.
 - `STRUCTURE-10` Do not nest loops. Do not nest `if` statements. Use an early return or a guard clause, a combined condition, or a separate function with its own name. Prefer an operation over a whole collection (for example, `map`, `filter`, or a set-based query) to a loop.
+- `STRUCTURE-11` When you design a feature that has states, write the states and transitions first (`STATE-02`, `STATE-03`). Then write the decision as one pure function over the states, and test each row of the decision table (`STATE-04`).
 
 ## Pure Functions
 
