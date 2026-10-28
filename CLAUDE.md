@@ -206,6 +206,9 @@ The size tiers, the example tables, and the delivery sections of the design docu
 - `DATA-01` Put all data access in a repository. The repository owns the queries and the storage calls. Do not read or write the data store outside a repository.
 - `DATA-02` Give the repository a typed interface. Return the structured types of the project, not raw rows.
 - `DATA-03` Make each database migration reversible. Do not mix a schema change with a data change in one migration.
+- `DATA-04` Select only the columns that the code uses. Do not select all columns (for example, `select *`). A column that the code does not use still costs time, memory, and network.
+- `DATA-05` Filter, sort, and limit the rows in the data store. Do not read a whole table to keep a few rows in code.
+- `DATA-06` Read each value once for each request. Do not read the same data twice. Run reads that do not depend on each other at the same time.
 
 ## Layers
 
@@ -269,6 +272,7 @@ The size tiers, the example tables, and the delivery sections of the design docu
 - `UI-06` Reset every filter, sort, page, and search value when the user changes the global parent context (for example, from one project to another). Remove their keys from the URL. Test this behavior.
 - `UI-07` When data is read-only, show a lock notice and disable every input that would change the data.
 - `UI-08` When a form saves automatically (`UI-03`), show the save status: saving, saved, or failed. Show the failure in text, not only in color.
+- `UI-09` Use radio buttons for a choice of one from a few options (up to about five). Show all options at once. Use a dropdown only for a longer list.
 
 ### Pure Components
 
@@ -346,3 +350,6 @@ The size tiers, the example tables, and the delivery sections of the design docu
 - `SQL-01` Do not give a table an alias. Write the full table name in every reference (for example, `stories.story_id`, not `s.story_id`).
 - `SQL-02` When one query reads the same table twice, give each reference an alias. The alias holds the full table name and the role of the reference (for example, `stories_as_duplicate_target`). Do not use a short alias.
 - `SQL-03` Name every variable, parameter, and column in full words (rule `CONVENTIONS-14`).
+- `SQL-04` Make every view apply the row-level security of the role that reads it. Do not let a view run with the rights of its owner (for example, in PostgreSQL, set `security_invoker = on`).
+- `SQL-05` A statement that replaces a view can reset the options of the view (for example, `CREATE OR REPLACE VIEW` in PostgreSQL). End each migration that creates or replaces a view with a statement that sets the options again (for example, `alter view <view> set (security_invoker = on);`).
+- `SQL-06` After such a migration, query the catalog for views that lack the option. The result must be empty.
