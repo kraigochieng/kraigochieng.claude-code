@@ -206,6 +206,9 @@ The size tiers, the example tables, and the delivery sections of the design docu
 - `DATA-01` Put all data access in a repository. The repository owns the queries and the storage calls. Do not read or write the data store outside a repository.
 - `DATA-02` Give the repository a typed interface. Return the structured types of the project, not raw rows.
 - `DATA-03` Make each database migration reversible. Do not mix a schema change with a data change in one migration.
+- `DATA-04` Select only the columns that the code uses. Do not select all columns (for example, `select *`). A column that the code does not use still costs time, memory, and network.
+- `DATA-05` Filter, sort, and limit the rows in the data store. Do not read a whole table to keep a few rows in code.
+- `DATA-06` Read each value once for each request. Do not read the same data twice. Run reads that do not depend on each other at the same time.
 
 ## Layers
 
