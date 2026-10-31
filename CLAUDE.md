@@ -335,7 +335,7 @@ The size tiers, the example tables, and the delivery sections of the design docu
 - `PY-05` Check the types with `mypy --strict` (or an equal strict checker) in CI. Run `ruff check` with the `F`, `I`, and `ANN` rules in CI.
 - `PY-06` Do not pin `python_version` in the checker config. Test on every Python version that CI runs.
 - `PY-07` Use pydantic `BaseModel` classes for structured data. Do not pass plain dicts or dataclasses between functions.
-- `PY-08` Use `polars` for data analysis. Do not use `pandas`.
+- `PY-08` Use `duckdb` for data analysis. Use `polars` only when `duckdb` cannot do the task. Use `pandas` only when neither can.
 - `PY-09` Use `platformdirs` for the config, data, and cache directories.
 - `PY-10` Use `pydantic-settings` (`BaseSettings`) to read environment variables and the `.env` file. Declare each secret with `SecretStr`. Read a secret with `get_secret_value()` only at the point of use.
 - `PY-11` Use `tmp_path` to isolate tests from the real home directory.
