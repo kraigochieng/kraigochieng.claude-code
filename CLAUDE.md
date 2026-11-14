@@ -256,6 +256,7 @@ The size tiers, the example tables, and the delivery sections of the design docu
 - `SECURITY-04` Write files that hold secrets atomically (temporary file, then rename) with owner-only permissions (for example, mode `0600`).
 - `SECURITY-05` Send a request with a secret only to the host the user set. Do not follow redirects.
 - `SECURITY-06` Read environment variables through a settings library that the user chooses (see `ASSUMPTIONS-05`). The library types each setting, validates it at start, and masks each secret on print. Use its secret type for each secret setting. Do not read the environment directly in application code. A library that supports a `.env` file and a secrets directory is a good fit.
+- `SECURITY-07` Before a release, scan each web service that you own for hidden or unlinked paths (forced browsing, or content discovery) with a wordlist-based path scanner (for example, `dirb`). Scan only a system that you own or that you have written permission to test. Treat each exposed path that needs no authentication (for example, a backup file, a `.env` file, a `.git` folder, or an admin page) as a defect. Run the scan in CI against a test deployment, not against production.
 
 ## User Interface
 
