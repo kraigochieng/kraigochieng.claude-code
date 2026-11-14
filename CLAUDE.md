@@ -330,16 +330,16 @@ The size tiers, the example tables, and the delivery sections of the design docu
 - `DELIVERY-03` After a network error on a write (merge, push), check the real state before you retry.
 - `DELIVERY-04` Pin the version of each dependency. Scan the dependencies for known vulnerabilities in CI.
 
-## Diligence
+## Rigor
 
-- `DILIGENCE-01` Take the time that the task needs. Do not rush to give an answer.
-- `DILIGENCE-02` Before you write or suggest code, read the code that the change touches. Check each fact that the answer depends on.
-- `DILIGENCE-03` Before you give a result, check it against the request. Run the tests that cover the change.
-- `DILIGENCE-04` Find the root cause before you fix a defect. Do not fix only the symptom. State the cause in the commit message or the issue.
-- `DILIGENCE-05` Do not make a check pass by a shortcut. A shortcut is to skip a test, to loosen an assertion, to suppress a finding (see `STATIC-04`), or to catch an error and ignore it (see `ERRORS-05`).
-- `DILIGENCE-06` When only a temporary workaround is possible, mark it in a comment with the reason. Create an issue to remove it. Tell the user in the report.
-- `DILIGENCE-07` Add a test that fails before the fix and passes after the fix.
-- `DILIGENCE-08` After you find the cause, search for other places with the same cause. Fix them, or create an issue for each one.
+- `RIGOR-01` Take the time that the task needs. Do not rush to give an answer.
+- `RIGOR-02` Before you write or suggest code, read the code that the change touches. Check each fact that the answer depends on.
+- `RIGOR-03` Before you give a result, check it against the request. Run the tests that cover the change.
+- `RIGOR-04` Find the root cause before you fix a defect. Do not fix only the symptom. State the cause in the commit message or the issue.
+- `RIGOR-05` Do not make a check pass by a shortcut. A shortcut is to skip a test, to loosen an assertion, to suppress a finding (see `STATIC-04`), or to catch an error and ignore it (see `ERRORS-05`).
+- `RIGOR-06` When only a temporary workaround is possible, mark it in a comment with the reason. Create an issue to remove it. Tell the user in the report.
+- `RIGOR-07` Add a test that fails before the fix and passes after the fix.
+- `RIGOR-08` After you find the cause, search for other places with the same cause. Fix them, or create an issue for each one.
 
 ## Reporting
 
