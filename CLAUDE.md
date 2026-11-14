@@ -186,6 +186,8 @@ The size tiers, the example tables, and the delivery sections of the design docu
 - `CONVENTIONS-12` Validate data at the boundary (files, user input). Turn a validation error into a clear error message.
 - `CONVENTIONS-13` Keep unknown keys when the code rewrites a file that other tools own.
 - `CONVENTIONS-14` Write every name in full words. Do not use a short form of a word (for example, `index`, not `idx`; `message`, not `msg`). Do not use a single-letter name, not even for a loop target, a lambda parameter, or a query alias.
+  - SQL: do not give a table an alias. Write the full table name in every reference (for example, `stories.story_id`, not `s.story_id`).
+  - SQL: when one query reads the same table twice, give each reference an alias. The alias holds the full table name and the role of the reference (for example, `stories_as_duplicate_target`).
 
 ## Structure
 
