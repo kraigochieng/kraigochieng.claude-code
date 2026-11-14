@@ -165,17 +165,29 @@ The size tiers, the example tables, and the delivery sections of the design docu
 - `CONVENTIONS-01` Put a one-sentence doc comment on every function and class. Say what it does, not how.
 - `CONVENTIONS-02` Use descriptive names. A name states the purpose (for example, `_chosen_config_dir`, not `_dir`). Do not use `done`, `data`, or `helper`.
 - `CONVENTIONS-03` Use absolute imports. Do not use relative imports.
+  - Python: `from package.module import name`.
 - `CONVENTIONS-04` Name the arguments in every function call when the language allows it (for example, `mask(value=token, secret=True)`, not `mask(token, True)`). Leave positional-only built-ins and variadic parameters as they are.
 - `CONVENTIONS-05` In a language without named arguments, take one options object and destructure it. Define its type. Use this form for every function that has more than one parameter or a boolean parameter.
+  - TypeScript: for example, `createUser({ name, role })`. Define the type with an `interface` or a `type`.
 - `CONVENTIONS-06` When the language allows it, mark optional and boolean parameters so that a caller cannot pass them by position.
+  - Python: mark these parameters keyword-only with `*` in the definition.
 - `CONVENTIONS-07` Give every function explicit types for each parameter and for the return value. Do not leave a type to inference at a function boundary. Do not use a catch-all type or an untyped collection. Write the element types.
+  - Python: do not use `Any`, `object` as a shortcut, or an untyped `dict` or `list`. Write the element types (`dict[str, int]`).
+  - TypeScript: do not use `any`.
 - `CONVENTIONS-08` Give every variable an explicit type: constants, class variables, type aliases, and local variables. Declare a name once, at its first assignment in the scope. Do not repeat the type when you rebind it. Do not rebind a parameter with a new type. Use a new name.
+  - Python: hint constants with `Final[str]`, class variables with `ClassVar[...]`, and type aliases with `TypeAlias`. Hint a local variable at its first assignment (`checks: list[Check] = []`).
 - `CONVENTIONS-09` Leave to inference the names that cannot take an inline type: loop targets, `with ... as` names, `except ... as` names, and tuple-unpack targets.
 - `CONVENTIONS-10` In a typed language, turn on the strict mode of the compiler or type checker. Run the strict checker, and a linter that requires types on functions, in CI. No linter requires a type on every local variable, so check that rule in review. Do not pin the language version in the checker config. Test on every language version that CI runs.
+  - Python: check the types with `mypy --strict` (or an equal strict checker) in CI. Run `ruff check` with the `F`, `I`, and `ANN` rules in CI.
+  - Python: do not pin `python_version` in the checker config. Test on every Python version that CI runs.
+  - TypeScript: set `strict: true`.
 - `CONVENTIONS-11` Use declared model types for structured data. Do not pass plain maps or unvalidated records between functions. Keep a plain map only for a free-form name-to-value map.
+  - Python: use pydantic `BaseModel` classes. Do not pass plain dicts or dataclasses between functions.
 - `CONVENTIONS-12` Validate data at the boundary (files, user input). Turn a validation error into a clear error message.
 - `CONVENTIONS-13` Keep unknown keys when the code rewrites a file that other tools own.
 - `CONVENTIONS-14` Write every name in full words. Do not use a short form of a word (for example, `index`, not `idx`; `message`, not `msg`). Do not use a single-letter name, not even for a loop target, a lambda parameter, or a query alias.
+  - SQL: do not give a table an alias. Write the full table name in every reference (for example, `stories.story_id`, not `s.story_id`).
+  - SQL: when one query reads the same table twice, give each reference an alias. The alias holds the full table name and the role of the reference (for example, `stories_as_duplicate_target`).
 
 ## Structure
 
@@ -241,6 +253,7 @@ The size tiers, the example tables, and the delivery sections of the design docu
 
 - `ASSUMPTIONS-01` Do not assume a naming convention for files or directories. Find them by content, and let the user register others.
 - `ASSUMPTIONS-02` Do not hard-code the paths of one operating system. Use the platform library for the config, data, and cache directories. Support Linux, macOS, and Windows.
+  - Python: use `platformdirs`.
 - `ASSUMPTIONS-03` Do not add a feature that no code reads. If a user questions the complexity, remove the feature.
 - `ASSUMPTIONS-04` Do not assume how another tool works. Test it with a real run, for example with a fake local server, before you document it.
 - `ASSUMPTIONS-05` When a project starts, list each library or tool choice that this file does not name for the language of the project. Ask the user to research and decide each choice. Do not choose for the user.
@@ -256,7 +269,12 @@ The size tiers, the example tables, and the delivery sections of the design docu
 - `SECURITY-04` Write files that hold secrets atomically (temporary file, then rename) with owner-only permissions (for example, mode `0600`).
 - `SECURITY-05` Send a request with a secret only to the host the user set. Do not follow redirects.
 - `SECURITY-06` Read environment variables through a settings library that the user chooses (see `ASSUMPTIONS-05`). The library types each setting, validates it at start, and masks each secret on print. Use its secret type for each secret setting. Do not read the environment directly in application code. A library that supports a `.env` file and a secrets directory is a good fit.
+  - Python: use `pydantic-settings` (`BaseSettings`). Declare each secret with `SecretStr`. Read a secret with `get_secret_value()` only at the point of use.
 - `SECURITY-07` Before a release, scan each web service that you own for hidden or unlinked paths (forced browsing, or content discovery) with a wordlist-based path scanner (for example, `dirb`). Scan only a system that you own or that you have written permission to test. Treat each exposed path that needs no authentication (for example, a backup file, a `.env` file, a `.git` folder, or an admin page) as a defect. Run the scan in CI against a test deployment, not against production.
+- `SECURITY-08` Make every derived object (for example, a view) apply the access rights of the role that reads it. Do not let it run with the rights of its owner. After a change that replaces the object, set its access options again. Then check that no derived object lacks the option.
+  - SQL (PostgreSQL): set `security_invoker = on` on every view.
+  - SQL (PostgreSQL): `CREATE OR REPLACE VIEW` can reset the options of the view. End each migration that creates or replaces a view with `alter view <view> set (security_invoker = on);`.
+  - SQL (PostgreSQL): after such a migration, query the catalog for views that lack the option. The result must be empty.
 
 ## Static Analysis
 
@@ -320,6 +338,7 @@ The size tiers, the example tables, and the delivery sections of the design docu
 
 - `TESTS-01` Write tests with the code. Run the full test suite before each commit.
 - `TESTS-02` Isolate tests from the real home directory, the real environment, and the network. Use temporary directories, injected parameters, and mock transports.
+  - Python: use `tmp_path` to isolate tests from the real home directory.
 - `TESTS-03` Add a test for each error path, not only for the success path. Include a test that raises each custom error type.
 - `TESTS-04` Check that CI passes before you merge.
 
@@ -352,28 +371,4 @@ The size tiers, the example tables, and the delivery sections of the design docu
 
 ## Python
 
-- `PY-01` Mark optional and boolean parameters keyword-only with `*` in the definition, so that a caller cannot pass them by position.
-- `PY-02` Use absolute imports (`from package.module import name`).
-- `PY-03` Do not use `Any`, `object` as a shortcut, or an untyped `dict` or `list`. Write the element types (`dict[str, int]`).
-- `PY-04` Hint constants with `Final[str]`, class variables with `ClassVar[...]`, and type aliases with `TypeAlias`. Hint a local variable at its first assignment (`checks: list[Check] = []`).
-- `PY-05` Check the types with `mypy --strict` (or an equal strict checker) in CI. Run `ruff check` with the `F`, `I`, and `ANN` rules in CI.
-- `PY-06` Do not pin `python_version` in the checker config. Test on every Python version that CI runs.
-- `PY-07` Use pydantic `BaseModel` classes for structured data. Do not pass plain dicts or dataclasses between functions.
 - `PY-08` Use `duckdb` for data analysis. Use `polars` only when `duckdb` cannot do the task. Use `pandas` only when neither can.
-- `PY-09` Use `platformdirs` for the config, data, and cache directories.
-- `PY-10` Use `pydantic-settings` (`BaseSettings`) to read environment variables and the `.env` file. Declare each secret with `SecretStr`. Read a secret with `get_secret_value()` only at the point of use.
-- `PY-11` Use `tmp_path` to isolate tests from the real home directory.
-
-## TypeScript
-
-- `TS-01` Take one options object and destructure it (`createUser({ name, role })`). Define its type with an `interface` or a `type`.
-- `TS-02` Set `strict: true`. Do not use `any`.
-
-## SQL
-
-- `SQL-01` Do not give a table an alias. Write the full table name in every reference (for example, `stories.story_id`, not `s.story_id`).
-- `SQL-02` When one query reads the same table twice, give each reference an alias. The alias holds the full table name and the role of the reference (for example, `stories_as_duplicate_target`). Do not use a short alias.
-- `SQL-03` Name every variable, parameter, and column in full words (rule `CONVENTIONS-14`).
-- `SQL-04` Make every view apply the row-level security of the role that reads it. Do not let a view run with the rights of its owner (for example, in PostgreSQL, set `security_invoker = on`).
-- `SQL-05` A statement that replaces a view can reset the options of the view (for example, `CREATE OR REPLACE VIEW` in PostgreSQL). End each migration that creates or replaces a view with a statement that sets the options again (for example, `alter view <view> set (security_invoker = on);`).
-- `SQL-06` After such a migration, query the catalog for views that lack the option. The result must be empty.
