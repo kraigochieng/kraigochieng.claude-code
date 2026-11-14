@@ -271,6 +271,10 @@ The size tiers, the example tables, and the delivery sections of the design docu
 - `SECURITY-06` Read environment variables through a settings library that the user chooses (see `ASSUMPTIONS-05`). The library types each setting, validates it at start, and masks each secret on print. Use its secret type for each secret setting. Do not read the environment directly in application code. A library that supports a `.env` file and a secrets directory is a good fit.
   - Python: use `pydantic-settings` (`BaseSettings`). Declare each secret with `SecretStr`. Read a secret with `get_secret_value()` only at the point of use.
 - `SECURITY-07` Before a release, scan each web service that you own for hidden or unlinked paths (forced browsing, or content discovery) with a wordlist-based path scanner (for example, `dirb`). Scan only a system that you own or that you have written permission to test. Treat each exposed path that needs no authentication (for example, a backup file, a `.env` file, a `.git` folder, or an admin page) as a defect. Run the scan in CI against a test deployment, not against production.
+- `SECURITY-08` Make every derived object (for example, a view) apply the access rights of the role that reads it. Do not let it run with the rights of its owner. After a change that replaces the object, set its access options again. Then check that no derived object lacks the option.
+  - SQL (PostgreSQL): set `security_invoker = on` on every view.
+  - SQL (PostgreSQL): `CREATE OR REPLACE VIEW` can reset the options of the view. End each migration that creates or replaces a view with `alter view <view> set (security_invoker = on);`.
+  - SQL (PostgreSQL): after such a migration, query the catalog for views that lack the option. The result must be empty.
 
 ## Static Analysis
 
