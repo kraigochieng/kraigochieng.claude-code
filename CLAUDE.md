@@ -307,6 +307,14 @@ The size tiers, the example tables, and the delivery sections of the design docu
 - `API-12` Allow only listed origins for cross-origin requests. Do not use a wildcard for an authenticated endpoint.
 - `API-13` Announce the removal of a version with a `Deprecation` header and a date. Keep the old version until that date.
 - `API-14` Generate a machine-readable description of the API from the code (for example, an OpenAPI document). Check it in CI.
+- `API-15` Name a resource with a plural noun. Do not put a verb in a path (use `POST /orders`, not `/createOrder`). Nest a path at most two levels deep.
+- `API-16` Use each method for one meaning. GET reads and has no side effect. POST creates or runs an action. PUT replaces a resource. PATCH changes part of a resource. DELETE removes a resource.
+- `API-17` Use PATCH for a partial update. Do not use PUT for a partial update. Document the patch format.
+- `API-18` Give every list endpoint filter and sort parameters in the query string. Accept only listed fields. Reject an unknown field with a validation error (see `API-09`).
+- `API-19` Send a validator (for example, an `ETag` header) and a cache policy (for example, `Cache-Control`) on each cacheable response. Support conditional requests. Return status 304 when the resource did not change.
+- `API-20` Prevent lost updates. Require a version check on each update (for example, `If-Match`). Return status 412 when the version is old.
+- `API-21` Use one case style for all field names. Use one format for dates (for example, ISO 8601 in UTC). Use one format for IDs. Do not mix formats between endpoints.
+- `API-22` State the media type of each request and response (for example, `Content-Type`). Check the `Accept` header. Return status 406 or 415 when the type is not supported.
 
 ## Tests
 
