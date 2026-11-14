@@ -258,6 +258,16 @@ The size tiers, the example tables, and the delivery sections of the design docu
 - `SECURITY-06` Read environment variables through a settings library that the user chooses (see `ASSUMPTIONS-05`). The library types each setting, validates it at start, and masks each secret on print. Use its secret type for each secret setting. Do not read the environment directly in application code. A library that supports a `.env` file and a secrets directory is a good fit.
 - `SECURITY-07` Before a release, scan each web service that you own for hidden or unlinked paths (forced browsing, or content discovery) with a wordlist-based path scanner (for example, `dirb`). Scan only a system that you own or that you have written permission to test. Treat each exposed path that needs no authentication (for example, a backup file, a `.env` file, a `.git` folder, or an admin page) as a defect. Run the scan in CI against a test deployment, not against production.
 
+## Static Analysis
+
+- `STATIC-01` Run static analysis on every change in CI. The checks are a linter, a format check, a type checker (for a typed language, see `CONVENTIONS-10`), and a source security scanner. Fail the build on any finding.
+- `STATIC-02` Run the same checks, with the same configuration, before each commit (for example, a pre-commit hook). A local pass must predict a CI pass.
+- `STATIC-03` Keep the configuration in the repository. Enable the strict rule set. Do not turn off a rule for the whole project to clear findings.
+- `STATIC-04` Suppress a finding only on the narrowest line. Write the reason in a comment on that line. Review each suppression in the pull request.
+- `STATIC-05` Use an automatic formatter. Check the format in CI. Do not discuss style in review.
+- `STATIC-06` Scan the source and the history for secrets (see `SECURITY-03`). Scan the dependencies for known vulnerabilities (see `DELIVERY-04`).
+- `STATIC-07` Get user approval before you add a static analysis tool (see `ASSUMPTIONS-05` and `ASSUMPTIONS-08`).
+
 ## User Interface
 
 - `UI-01` Ask for confirmation before every destructive action. Name the item in the confirmation.
