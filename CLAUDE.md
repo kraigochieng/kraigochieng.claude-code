@@ -371,28 +371,4 @@ The size tiers, the example tables, and the delivery sections of the design docu
 
 ## Python
 
-- `PY-01` Mark optional and boolean parameters keyword-only with `*` in the definition, so that a caller cannot pass them by position.
-- `PY-02` Use absolute imports (`from package.module import name`).
-- `PY-03` Do not use `Any`, `object` as a shortcut, or an untyped `dict` or `list`. Write the element types (`dict[str, int]`).
-- `PY-04` Hint constants with `Final[str]`, class variables with `ClassVar[...]`, and type aliases with `TypeAlias`. Hint a local variable at its first assignment (`checks: list[Check] = []`).
-- `PY-05` Check the types with `mypy --strict` (or an equal strict checker) in CI. Run `ruff check` with the `F`, `I`, and `ANN` rules in CI.
-- `PY-06` Do not pin `python_version` in the checker config. Test on every Python version that CI runs.
-- `PY-07` Use pydantic `BaseModel` classes for structured data. Do not pass plain dicts or dataclasses between functions.
 - `PY-08` Use `duckdb` for data analysis. Use `polars` only when `duckdb` cannot do the task. Use `pandas` only when neither can.
-- `PY-09` Use `platformdirs` for the config, data, and cache directories.
-- `PY-10` Use `pydantic-settings` (`BaseSettings`) to read environment variables and the `.env` file. Declare each secret with `SecretStr`. Read a secret with `get_secret_value()` only at the point of use.
-- `PY-11` Use `tmp_path` to isolate tests from the real home directory.
-
-## TypeScript
-
-- `TS-01` Take one options object and destructure it (`createUser({ name, role })`). Define its type with an `interface` or a `type`.
-- `TS-02` Set `strict: true`. Do not use `any`.
-
-## SQL
-
-- `SQL-01` Do not give a table an alias. Write the full table name in every reference (for example, `stories.story_id`, not `s.story_id`).
-- `SQL-02` When one query reads the same table twice, give each reference an alias. The alias holds the full table name and the role of the reference (for example, `stories_as_duplicate_target`). Do not use a short alias.
-- `SQL-03` Name every variable, parameter, and column in full words (rule `CONVENTIONS-14`).
-- `SQL-04` Make every view apply the row-level security of the role that reads it. Do not let a view run with the rights of its owner (for example, in PostgreSQL, set `security_invoker = on`).
-- `SQL-05` A statement that replaces a view can reset the options of the view (for example, `CREATE OR REPLACE VIEW` in PostgreSQL). End each migration that creates or replaces a view with a statement that sets the options again (for example, `alter view <view> set (security_invoker = on);`).
-- `SQL-06` After such a migration, query the catalog for views that lack the option. The result must be empty.
