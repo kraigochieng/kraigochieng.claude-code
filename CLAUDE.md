@@ -374,7 +374,7 @@ The size tiers, the example tables, and the delivery sections of the design docu
 - `PROMPT-01` Do not use a relative adjective (for example, "good", "clean", "short", "fast") without a measure. Define each one by a test, a number, or a pair of examples. Ask: what is good? What is bad?
 - `PROMPT-02` Write an example as an illustration, not as a full list. Mark it with "for example". State the principle that the example shows.
 - `PROMPT-03` Do not list every scenario. If the list of scenarios grows, replace it with one rule that covers all of them. Test that rule on a case that the list did not name.
-- `PROMPT-04` State one goal at the start of a prompt. Remove each part that does not serve the goal. State how the reader checks that the goal is met.
+- `PROMPT-04` State the purpose and the end state at the start of a prompt. The purpose says why the work matters. The end state says what is true when the work is complete, and how the reader checks it. Remove each part that does not serve them.
 
 # Language-Specific Rules
 
