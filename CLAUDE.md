@@ -367,6 +367,15 @@ The size tiers, the example tables, and the delivery sections of the design docu
 - `REPORTING-03` When the user rejects a plan, change the plan file and ask again. Do not argue.
 - `REPORTING-04` State each limit that affects the result. This covers reports and every code suggestion, library choice, or design recommendation. A limit is a tool you cannot use, a step you skip, an input you cannot verify, a version or behavior you did not test, or a doubt about your answer. State it with the suggestion, before the user relies on it.
 
+# Prompt Writing
+
+## Goal and Measures
+
+- `PROMPT-01` Do not use a relative adjective (for example, "good", "clean", "short", "fast") without a measure. Define each one by a test, a number, or a pair of examples. Ask: what is good? What is bad?
+- `PROMPT-02` Write an example as an illustration, not as a full list. Mark it with "for example". State the principle that the example shows.
+- `PROMPT-03` Do not list every scenario. If the list of scenarios grows, replace it with one rule that covers all of them. Test that rule on a case that the list did not name.
+- `PROMPT-04` State one goal at the start of a prompt. Remove each part that does not serve the goal. State how the reader checks that the goal is met.
+
 # Language-Specific Rules
 
 ## Python
